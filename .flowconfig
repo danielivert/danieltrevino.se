@@ -2,6 +2,8 @@
 .*/node_modules/stylelint/.*
 .*/node_modules/draft-js/.*
 .*/node_modules/mitt/.*
+.*/gatsby-config.js
+.*/gatsby-node.js
 
 [include]
 ./src

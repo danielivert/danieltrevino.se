@@ -1,0 +1,10 @@
+@import 'src/styles/vars.scss';
+@import 'src/styles/mixins.scss';
+
+.navigation {
+  background-color: $color-white;
+}
+
+.container {
+  @include padding-x-lg;
+}

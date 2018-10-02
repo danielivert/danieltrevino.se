@@ -5,8 +5,10 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-flow",
-    "gatsby-plugin-sass",
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-offline",
+    "gatsby-plugin-resolve-src",
+    "gatsby-plugin-sass",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -19,7 +21,6 @@ module.exports = {
         icon: "src/images/gatsby-icon.png" // This path is relative to the root of the site.
       }
     },
-    "gatsby-plugin-offline",
     {
       resolve: "gatsby-plugin-typography",
       options: {
