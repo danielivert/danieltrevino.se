@@ -1,3 +1,4 @@
+@import 'src/styles/vars.scss';
 @import 'src/styles/mixins.scss';
 
 .container {
@@ -10,9 +11,11 @@
 }
 
 .head {
+  color: $font-secondary-color;
   span {
     display: block;
     font-size: 1.5em;
+    color: $font-primary-color;
     @include margin-t-xxs;
   }
 }

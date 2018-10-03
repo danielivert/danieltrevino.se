@@ -28,7 +28,7 @@
 
 .listItem {
   &:after {
-    color: $font-secondary-color;
+    color: $color-accent;
     content: '•';
     @include margin-x-xs;
   }
