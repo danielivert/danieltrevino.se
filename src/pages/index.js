@@ -1,10 +1,11 @@
 // @flow
 import React from "react"
 import Layout from "components/Layout"
+import HeroHeader from "components/HeroHeader"
 
 const IndexPage = () => (
   <Layout>
-    <h1>Hi people</h1>
+    <HeroHeader />
   </Layout>
 )
 
