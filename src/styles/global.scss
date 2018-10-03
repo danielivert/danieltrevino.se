@@ -1,1 +1,8 @@
 @import './normalize.scss';
+@import 'src/styles/vars.scss';
+
+:global {
+  body {
+    color: $font-primary-color;
+  }
+}
