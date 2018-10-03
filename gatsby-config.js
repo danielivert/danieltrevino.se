@@ -1,7 +1,12 @@
 // @flow
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Default Starter"
+    title: "Daniel Treviño",
+    heroHeader: {
+      title: "👋 Hello, I am ",
+      span: "Daniel Treviño",
+      body: ["Fullstack Website Developer", "Based in Stockholm, Sweden 🇸🇪"]
+    }
   },
   plugins: [
     "gatsby-plugin-flow",
