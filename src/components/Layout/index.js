@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import Helmet from "../Helmet"
+import SEO from "../SEO"
 import "styles/global.scss"
 
 import Navigation from "../Navigation"
@@ -23,7 +23,7 @@ const Layout = ({ children }: Props) => (
     `}
     render={(data: Object) => (
       <div>
-        <Helmet data={data} />
+        <SEO data={data} />
         <Navigation siteTitle={data.site.siteMetadata.title} />
         <div>{children}</div>
       </div>

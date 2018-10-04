@@ -6,7 +6,7 @@ type Props = {
   data: Object
 }
 
-const HelmetComponent = ({ data }: Props) => (
+const SEO = ({ data }: Props) => (
   <Helmet
     title={data.site.siteMetadata.title}
     meta={[
@@ -18,4 +18,4 @@ const HelmetComponent = ({ data }: Props) => (
   </Helmet>
 )
 
-export default HelmetComponent
+export default SEO
