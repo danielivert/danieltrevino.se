@@ -1,5 +1,8 @@
 @import 'src/styles/vars.scss';
 @import './_normalize.scss';
+@import 'src/styles/mixins.scss';
+@import '~bulma/sass/utilities/_all.sass';
+@import '~bulma/sass/grid/columns.sass';
 
 :global {
   body {

@@ -1,0 +1,39 @@
+@import 'src/styles/vars.scss';
+@import 'src/styles/mixins.scss';
+
+.container {
+  background-color: $color-white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  text-align: center;
+  @include padding-sm;
+  @include margin-x-xxl;
+  @include bp(sm) {
+    @include margin-x-xs;
+  }
+}
+
+.title {
+  position: relative;
+  display: inline-block;
+
+  &:after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    width: 50%;
+    height: 6px;
+    margin: 1em auto;
+    background: $color-accent2;
+    border-radius: 10px;
+    content: '';
+  }
+}
+
+.skillList {
+  @include margin-t-md;
+}
+
+.skill {
+  @include padding-y-md;
+}
