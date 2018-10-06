@@ -12,10 +12,29 @@
 
 .head {
   color: $font-secondary-color;
-  span {
-    display: block;
-    font-size: 1.5em;
-    color: $font-primary-color;
-    @include margin-t-xxs;
+}
+
+.name {
+  display: block;
+  font-size: 1.5em;
+  color: $font-primary-color;
+  @include margin-t-xxs;
+}
+
+.waver {
+  display: inline-block;
+  margin-right: 22px;
+  font-size: 1em;
+  transform-origin: 50% 90%;
+  animation: waver 0.65s alternate infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes waver {
+  0% {
+    transform: rotate(-25deg);
+  }
+  100% {
+    transform: rotate(30deg);
   }
 }

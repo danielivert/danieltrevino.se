@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     title: "Daniel Treviño",
     heroHeader: {
-      title: "👋 Hello, I am ",
+      title: "Hello, I am ",
       span: "Daniel Treviño",
       body: ["Fullstack Website Developer", "Based in Stockholm, Sweden 🇸🇪"]
     }

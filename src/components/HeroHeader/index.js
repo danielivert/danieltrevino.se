@@ -25,8 +25,9 @@ const HeroHeader = () => (
         <div className={styles.container}>
           <div className={styles.head}>
             <h1>
+              <span className={styles.waver}>👋 </span>
               {heroHeader.title}
-              <span>{heroHeader.span}</span>
+              <span className={styles.name}>{heroHeader.span}</span>
             </h1>
           </div>
           <div className={styles.body}>
