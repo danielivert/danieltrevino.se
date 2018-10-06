@@ -8,9 +8,28 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   text-align: center;
   @include padding-sm;
+  @include margin-b-md;
   @include bp(sm) {
     width: 90%;
     margin: 0 auto;
+  }
+}
+
+// Diagonal background
+.container:before {
+  position: absolute;
+  z-index: -1;
+  top: 700px;
+  right: 0;
+  left: 0;
+  height: 100%;
+  max-height: 450px;
+  background: $gradient-purple;
+  -webkit-transform: skew(0, -12deg);
+  transform: skew(0, -12deg);
+  content: '';
+  @include bp(sm) {
+    max-height: 1000px;
   }
 }
 
@@ -24,7 +43,7 @@
     right: 0;
     left: 0;
     width: 50%;
-    height: 6px;
+    height: 4px;
     margin: 1em auto;
     background: $color-accent2;
     border-radius: 10px;

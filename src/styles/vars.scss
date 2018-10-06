@@ -1,8 +1,19 @@
 // Colors
 $color-white: #ffffff;
 $color-accent: #dcdcdc;
-$color-accent2: #31a5ba;
+$color-accent2: #7795f8;
 
 // Fonts
 $font-primary-color: #23394a;
 $font-secondary-color: #bbbbbb;
+
+// Gradients
+$gradient-blue: linear-gradient(309.15deg, #56ccf2 0, #2f80ed 100%);
+$gradient-purple: linear-gradient(
+  to left bottom,
+  #7795f8,
+  #788dfc,
+  #7b84fe,
+  #8179ff,
+  #8a6eff
+);
