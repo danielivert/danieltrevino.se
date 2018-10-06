@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="55px" height="57px" viewBox="0 0 55 57" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>flow-logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="flow-logo" fill-rule="nonzero">
+            <polygon id="Shape" fill="#FFCA20" opacity="0.7" points="51 25 32 6 51 6"></polygon>
+            <polygon id="Shape" fill="#FFCA20" opacity="0.7" points="18 0 28.7693771 0 37 8 18 8"></polygon>
+            <path d="M19.107224,19.0022589 L0,0 L22.9736483,0 L22.9736483,19 L19.107224,19.0022589 Z M35.892776,38 L55,57 L35.892776,57 L35.892776,38 Z" id="Shape" fill="#FFCF39" opacity="0.9"></path>
+            <path d="M22.8916283,38.771258 L4,19.769268 L22.8938746,19.769268 L22.8938746,38.7689991 L22.8916283,38.771258 Z M43.2388779,29.1550584 L28.1772409,14 L43.2456169,14 L43.2388779,29.1550584 Z M45,56 L27.8650011,38.771258 L45,38.771258 L45,56 Z" id="Shape" fill="#FFE490" opacity="0.7"></path>
+            <polygon id="Shape" fill="#FCBC7C" opacity="0.9" points="23 15 8 0 23 0"></polygon>
+            <polygon id="Shape" fill="#F9A040" opacity="0.8" points="28 38 47 57 28 57"></polygon>
+            <polygon id="Shape" fill="#F9A040" opacity="0.7" points="47 45 28 26 47 26"></polygon>
+            <polygon id="Shape" fill="#FFCF39" opacity="0.9" points="28 14 46 32 28 32"></polygon>
+            <polygon id="Shape" fill="#FFC737" opacity="0.7" points="23 57 0 34 23 34"></polygon>
+        </g>
+    </g>
+</svg>

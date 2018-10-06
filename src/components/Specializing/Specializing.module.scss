@@ -2,20 +2,22 @@
 @import 'src/styles/mixins.scss';
 
 .container {
+  width: 60%;
+  margin: 0 auto;
   background-color: $color-white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   text-align: center;
   @include padding-sm;
-  @include margin-x-xxl;
   @include bp(sm) {
-    @include margin-x-xs;
+    width: 90%;
+    margin: 0 auto;
   }
 }
 
 .title {
   position: relative;
   display: inline-block;
-
+  @include margin-b-md;
   &:after {
     position: absolute;
     top: 50%;
@@ -35,5 +37,46 @@
 }
 
 .skill {
-  @include padding-y-md;
+  @include padding-y-sm;
+}
+
+.boxLogo {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+  @include bp(sm) {
+    width: 30%;
+    height: 30%;
+  }
+}
+
+.boxLogo img {
+  margin: 0;
+  @include bp(sm) {
+    height: 20%;
+  }
+}
+
+.boxTitle h4 {
+  margin: 0;
+  @include margin-t-xxs;
+  @include bp(sm) {
+    font-size: 1.5em;
+  }
+}
+
+.spin {
+  animation: App-logo-spin infinite 20s linear;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

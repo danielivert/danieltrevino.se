@@ -3,6 +3,7 @@
 
 .navigation {
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
   width: 100%;
@@ -36,7 +37,6 @@
 
 .listItem:last-child {
   &:after {
-    // margin-right: 0;
     content: none;
   }
 }
