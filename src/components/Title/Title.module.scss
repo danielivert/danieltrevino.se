@@ -1,0 +1,21 @@
+@import 'src/styles/vars.scss';
+@import 'src/styles/mixins.scss';
+
+.body {
+  position: relative;
+  display: inline-block;
+  @include margin-b-md;
+}
+
+.body:after {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  width: 50%;
+  height: 4px;
+  margin: 1em auto;
+  background: $color-accent2;
+  border-radius: 10px;
+  content: '';
+}

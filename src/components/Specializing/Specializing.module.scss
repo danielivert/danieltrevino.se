@@ -33,24 +33,6 @@
   }
 }
 
-.title {
-  position: relative;
-  display: inline-block;
-  @include margin-b-md;
-  &:after {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    left: 0;
-    width: 50%;
-    height: 4px;
-    margin: 1em auto;
-    background: $color-accent2;
-    border-radius: 10px;
-    content: '';
-  }
-}
-
 .skillList {
   @include margin-t-md;
 }

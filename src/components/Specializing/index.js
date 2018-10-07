@@ -1,5 +1,6 @@
 // @flow
 import * as React from "react"
+import Title from "components/Title"
 import reactLogo from "../../images/react-logo.svg"
 import webpackLogo from "../../images/webpack-logo.svg"
 import sassLogo from "../../images/sass-logo.svg"
@@ -27,9 +28,7 @@ const SkillBox = ({ logo, title, spin = false }: SkillBoxProps) => (
 
 const Specializing = () => (
   <div className={styles.container}>
-    <div className={styles.title}>
-      <h3>What I am specialized</h3>
-    </div>
+    <Title text="What I am specialized" />
     <div className="columns is-multiline">
       <SkillBox logo={reactLogo} title="React" spin />
       <SkillBox logo={webpackLogo} title="Webpack" />
