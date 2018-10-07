@@ -1,0 +1,26 @@
+@import 'src/styles/vars.scss';
+@import 'src/styles/mixins.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include margin-t-md;
+}
+
+.item {
+  //   max-width: 35%;
+  @include margin-r-xs;
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.item img {
+  width: 50%;
+  margin: 0;
+}
