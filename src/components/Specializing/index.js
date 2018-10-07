@@ -28,7 +28,7 @@ const SkillBox = ({ logo, title, spin = false }: SkillBoxProps) => (
 
 const Specializing = () => (
   <div className={styles.container}>
-    <Title text="What I am specialized" />
+    <Title text="I specialize in" />
     <div className="columns is-multiline">
       <SkillBox logo={reactLogo} title="React" spin />
       <SkillBox logo={webpackLogo} title="Webpack" />
