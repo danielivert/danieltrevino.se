@@ -29,6 +29,11 @@
 }
 
 .listItem {
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+
   &:after {
     color: $color-accent;
     content: '•';

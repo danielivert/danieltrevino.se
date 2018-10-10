@@ -29,7 +29,7 @@
   transform: skew(0, -12deg);
   content: '';
   @include bp(sm) {
-    max-height: 1000px;
+    top: 700px;
   }
 }
 
@@ -57,7 +57,7 @@
 .boxLogo img {
   margin: 0;
   @include bp(sm) {
-    height: 20%;
+    height: 100%;
   }
 }
 

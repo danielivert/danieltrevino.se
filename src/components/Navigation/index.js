@@ -13,8 +13,7 @@ const MenuItem = ({ text }: MenuItemProps) => (
 const MenuList = () => (
   <ul className={styles.menuList}>
     <MenuItem text="About" />
-    <MenuItem text="Skills" />
-    <MenuItem text="Experience" />
+    <MenuItem text="Work" />
     <MenuItem text="Contact" />
   </ul>
 )

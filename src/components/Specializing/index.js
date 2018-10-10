@@ -16,7 +16,7 @@ type SkillBoxProps = {
 }
 
 const SkillBox = ({ logo, title, spin = false }: SkillBoxProps) => (
-  <div className={`column is-one-third ${styles.skill}`}>
+  <div className={`column is-6-mobile is-4-desktop ${styles.skill}`}>
     <div className={`${styles.boxLogo} ${spin ? styles.spin : ""}`}>
       <img src={logo} />
     </div>
@@ -29,7 +29,7 @@ const SkillBox = ({ logo, title, spin = false }: SkillBoxProps) => (
 const Specializing = () => (
   <div className={styles.container}>
     <Title text="I specialize in" />
-    <div className="columns is-multiline">
+    <div className="columns is-multiline is-mobile">
       <SkillBox logo={reactLogo} title="React" spin />
       <SkillBox logo={webpackLogo} title="Webpack" />
       <SkillBox logo={sassLogo} title="Sass modules" />
