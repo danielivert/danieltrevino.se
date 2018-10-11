@@ -19,17 +19,17 @@
 .container:before {
   position: absolute;
   z-index: -1;
-  top: 700px;
+  top: 70%;
   right: 0;
   left: 0;
   height: 100%;
-  max-height: 450px;
+  max-height: 50%;
   background: $gradient-blue;
   -webkit-transform: skew(0, -12deg);
   transform: skew(0, -12deg);
   content: '';
   @include bp(sm) {
-    top: 700px;
+    max-height: 35%;
   }
 }
 

@@ -3,6 +3,9 @@
 
 .container {
   @include padding-xxl;
+  @include bp(md) {
+    @include padding-xs;
+  }
   @include bp(sm) {
     overflow: hidden;
     @include margin-t-sm;
