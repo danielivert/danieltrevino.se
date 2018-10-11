@@ -12,10 +12,10 @@ const sliderSettings = {
   className: "center",
   dots: true,
   arrows: false,
-  infinite: false,
-  centerPadding: "60px",
+  infinite: true,
   slidesToShow: 2,
   swipeToSlide: true,
+  lazyLoad: true,
   afterChange: function(index) {
     console.log(
       `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
@@ -56,15 +56,9 @@ const Works = () => (
       <Title text="My Works" />
     </div>
     <Slider {...sliderSettings}>
-      <div className={styles.slide}>
-        <Card title="" img={danieltrevinoImg} />
-      </div>
-      <div className={styles.slide}>
-        <Card title="" img={frankieImg} />
-      </div>
-      <div className={styles.slide}>
-        <Card title="" img={hitchrisImg} />
-      </div>
+      <Card img={danieltrevinoImg} />
+      <Card img={frankieImg} />
+      <Card img={hitchrisImg} />
     </Slider>
   </section>
 )

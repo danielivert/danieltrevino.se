@@ -2,7 +2,9 @@
 @import 'src/styles/mixins.scss';
 
 .container {
-  width: 100%;
+  display: inline-flex !important;
+  width: 100% !important;
+  height: 100% !important;
   min-height: 450px;
   background-color: $color-white;
   background-repeat: no-repeat;
@@ -11,12 +13,8 @@
   border-radius: 0.5em;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   cursor: pointer;
-  @include margin-r-xs;
-  @include bp(sm) {
-    // flex: 0 0 90%;
-    // width: 80%;
-    // margin: 0 auto;
-    // @include margin-r-xs;
+  &:focus {
+    outline: none !important;
   }
 }
 
@@ -25,10 +23,6 @@
   &.body {
     opacity: 0;
   }
-}
-
-.container:last-child {
-  margin: 0;
 }
 
 .body {
