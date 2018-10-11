@@ -10,6 +10,7 @@ import styles from "./Works.module.scss"
 
 const sliderSettings = {
   className: "center",
+  dots: true,
   arrows: false,
   infinite: false,
   centerPadding: "60px",
