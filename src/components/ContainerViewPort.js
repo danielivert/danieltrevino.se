@@ -3,7 +3,8 @@ import * as React from "react"
 
 type Props = {
   children: React.Node,
-  viewPort: number
+  viewPort: number,
+  className: string
 }
 
 type State = {
@@ -26,9 +27,10 @@ class ContainerViewPort extends React.Component<Props, State> {
   }
   render() {
     const { height } = this.state
-    const { children } = this.props
+    const { children, className } = this.props
+
     return (
-      <section style={{ height }} {...this.props}>
+      <section style={{ height }} className={className}>
         {children}
       </section>
     )
