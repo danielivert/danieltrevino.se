@@ -21,6 +21,10 @@
   justify-content: center;
   height: 100vh;
   background: transparent;
+  @include bp(sm) {
+    height: auto;
+    @include padding-xxl;
+  }
 }
 
 .container:before {

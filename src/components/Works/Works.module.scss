@@ -3,7 +3,7 @@
 
 .container {
   @include padding-xxl;
-  @include bp(md) {
+  @include bp(lg) {
     @include padding-xs;
   }
   @include bp(sm) {
