@@ -1,11 +1,10 @@
 // @flow
 import * as React from "react"
-import ContainerViewPort from "../ContainerViewPort"
 import SocialMedia from "./SocialMedia"
 import styles from "./Contact.module.scss"
 
 const Contact = () => (
-  <ContainerViewPort viewPort={100} className={styles.contact}>
+  <div className={styles.contact}>
     <div className={styles.space} />
     <div className={styles.container}>
       <div className={styles.body}>
@@ -19,7 +18,7 @@ const Contact = () => (
         <SocialMedia />
       </div>
     </div>
-  </ContainerViewPort>
+  </div>
 )
 
 export default Contact
