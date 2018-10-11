@@ -19,7 +19,9 @@
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
     "react-id-swiper": "^1.6.8",
+    "react-slick": "^0.23.1",
     "react-typography": "^0.16.13",
+    "slick-carousel": "^1.8.1",
     "typography": "^0.16.17",
     "typography-theme-moraga": "^0.15.10"
   },

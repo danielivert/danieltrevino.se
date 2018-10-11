@@ -22,3 +22,19 @@
   transition-duration: 0.5s;
   transition-property: transform;
 }
+
+:global {
+  .slick-slide {
+    width: 100%;
+    @include padding-x-xxs;
+  }
+}
+
+.slide {
+  display: inline-flex !important;
+  width: 100% !important;
+  height: 100% !important;
+  &:focus {
+    outline: none !important;
+  }
+}

@@ -8,6 +8,24 @@ type Props = {
   img: string
 }
 
+// const Card = ({ title, img }: Props) => (
+//   <div
+//     className={styles.container}
+//     style={{
+//       backgroundImage: `url(${img})`
+//     }}
+//   >
+//     <div className={styles.body}>
+//       <div className={styles.title}>
+//         <h4>{title}</h4>
+//       </div>
+//       <div className={styles.button}>
+//         <p>View Project</p>
+//       </div>
+//     </div>
+//   </div>
+// )
+
 const Card = ({ title, img }: Props) => (
   <div
     className={styles.container}
@@ -15,14 +33,7 @@ const Card = ({ title, img }: Props) => (
       backgroundImage: `url(${img})`
     }}
   >
-    <div className={styles.body}>
-      <div className={styles.title}>
-        <h4>{title}</h4>
-      </div>
-      <div className={styles.button}>
-        <p>View Project</p>
-      </div>
-    </div>
+    <p>{title}</p>
   </div>
 )
 
