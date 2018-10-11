@@ -1,6 +1,7 @@
 // @flow
 import * as React from "react"
 import Slider from "react-slick"
+import ContainerViewPort from "../ContainerViewPort"
 import Title from "components/Title"
 import Card from "components/Card"
 import danieltrevinoImg from "../../images/danieltrevino.se.png"
@@ -16,11 +17,6 @@ const sliderSettings = {
   slidesToShow: 2,
   swipeToSlide: true,
   lazyLoad: true,
-  afterChange: function(index) {
-    console.log(
-      `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
-    )
-  },
   responsive: [
     {
       breakpoint: 1400,
@@ -51,7 +47,7 @@ const sliderSettings = {
 }
 
 const Works = () => (
-  <section className={styles.container}>
+  <ContainerViewPort viewPort={70} className={styles.container}>
     <div className={styles.head}>
       <Title text="My Works" />
     </div>
@@ -60,7 +56,7 @@ const Works = () => (
       <Card img={frankieImg} />
       <Card img={hitchrisImg} />
     </Slider>
-  </section>
+  </ContainerViewPort>
 )
 
 export default Works

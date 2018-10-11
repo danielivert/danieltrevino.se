@@ -1,6 +1,7 @@
 // @flow
 import * as React from "react"
 import Helmet from "react-helmet"
+import favicon from "../images/favicon.png"
 import danieltrevinoImg from "../images/danieltrevino.se.png"
 
 type Props = {
@@ -34,6 +35,7 @@ class SEO extends React.Component<Props> {
       >
         <html lang="en" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" type="image/png" href={favicon} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />

@@ -2,11 +2,9 @@
 @import 'src/styles/mixins.scss';
 
 .container {
-  height: 70vh;
   @include padding-xxl;
   @include bp(sm) {
     overflow: hidden;
-    height: 80vh;
     @include margin-t-sm;
     @include padding-md;
   }

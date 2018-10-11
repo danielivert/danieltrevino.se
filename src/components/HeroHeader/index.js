@@ -1,5 +1,6 @@
 // @flow
 import * as React from "react"
+import ContainerViewPort from "../ContainerViewPort"
 import { StaticQuery, graphql } from "gatsby"
 import styles from "./HeroHeader.module.scss"
 
@@ -22,7 +23,7 @@ const HeroHeader = () => (
       const { heroHeader } = data.site.siteMetadata
 
       return (
-        <div className={styles.container}>
+        <ContainerViewPort viewPort={70} className={styles.container}>
           <div className={styles.head}>
             <h1>
               <span className={styles.waver}>👋 </span>
@@ -35,7 +36,7 @@ const HeroHeader = () => (
               <p key={item}>{item}</p>
             ))}
           </div>
-        </div>
+        </ContainerViewPort>
       )
     }}
   />
