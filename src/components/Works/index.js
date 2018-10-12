@@ -47,7 +47,8 @@ const sliderSettings = {
 }
 
 const Works = () => (
-  <ContainerViewPort viewPort={85} className={styles.container}>
+  // <ContainerViewPort viewPort={85} className={styles.container}>
+  <div className={styles.container}>
     <div className={styles.head}>
       <Title text="My Works" />
     </div>
@@ -56,7 +57,8 @@ const Works = () => (
       <Card img={frankieImg} />
       <Card img={hitchrisImg} />
     </Slider>
-  </ContainerViewPort>
+  </div>
+  // </ContainerViewPort>
 )
 
 export default Works
