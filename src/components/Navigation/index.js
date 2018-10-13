@@ -1,13 +1,24 @@
 // @flow
 import React from "react"
 import styles from "./Navigation.module.scss"
+import { Link } from "react-scroll"
 
 type MenuItemProps = {
   text: string
 }
 
 const MenuItem = ({ text }: MenuItemProps) => (
-  <li className={styles.listItem}>{text}</li>
+  <Link
+    className={styles.listItem}
+    activeClass="active"
+    to={text}
+    spy={true}
+    smooth={true}
+    offset={50}
+    duration={500}
+  >
+    {text}
+  </Link>
 )
 
 const MenuList = () => (

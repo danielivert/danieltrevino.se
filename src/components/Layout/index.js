@@ -19,6 +19,18 @@ const Layout = ({ children }: Props) => (
             title
           }
         }
+
+        ogImage: allFile(
+          filter: { relativePath: { eq: "danieltrevino_desktop.png" } }
+        ) {
+          edges {
+            node {
+              id
+              name
+              publicURL
+            }
+          }
+        }
       }
     `}
     render={(data: Object) => (

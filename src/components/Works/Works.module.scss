@@ -2,14 +2,18 @@
 @import 'src/styles/mixins.scss';
 
 .container {
+  display: block;
   height: 100vh;
+  margin-top: 10em;
   @include padding-xxl;
   // Fix to ipad
   @include bp(lg) {
+    @include margin-t-xxl;
     @include padding-xs;
   }
   @include bp(sm) {
     overflow: hidden;
+    @include margin-t-lg;
     @include margin-t-sm;
   }
 }

@@ -2,6 +2,7 @@
 @import 'src/styles/mixins.scss';
 
 .container {
+  position: relative;
   display: inline-flex !important;
   width: 100% !important;
   height: 100% !important;
@@ -25,33 +26,56 @@
   }
 }
 
-.body {
+.container:before {
   position: absolute;
-  top: 60%;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  overflow: hidden;
   width: 100%;
-  @include padding-l-xs;
+  height: 100%;
+  background: $color-white;
+  opacity: 0.5;
+  content: '';
 }
 
-.title {
-  height: 50%;
-}
-
-.title h4 {
+.container img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   margin: 0;
+
+  object-fit: cover;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .button {
-  width: 50%;
-  background: transparent;
-  border: 1px solid $color-accent;
-  border-radius: 1em;
-  font-size: 0.8em;
-  text-align: center;
-  text-transform: uppercase;
-  @include padding-y-xxs;
-  @include margin-y-sm;
+  position: absolute;
+  z-index: 4;
+  width: 60%;
+  background: $gradient-blue;
+  border-radius: 0.5em;
+  color: $color-white;
+
+  &:hover {
+    background: $gradient-purple;
+  }
 }
 
-.button p {
-  margin: 0;
+.button a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  @include padding-x-md;
+  @include padding-y-xxs;
+  @include bp(sm) {
+    @include padding-y-xs;
+  }
 }

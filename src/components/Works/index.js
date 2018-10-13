@@ -1,12 +1,15 @@
 // @flow
 import * as React from "react"
 import Slider from "react-slick"
-import ContainerViewPort from "../ContainerViewPort"
 import Title from "components/Title"
 import Card from "components/Card"
-import danieltrevinoImg from "../../images/danieltrevino.se.png"
-import hitchrisImg from "../../images/hitchris.se.png"
-import frankieImg from "../../images/frankie.tech.png"
+import { Element } from "react-scroll"
+import danieltrevinoDesktop from "../../images/danieltrevino_desktop.png"
+import danieltrevinoMobile from "../../images/danieltrevino_mobile.png"
+import frankieDesktop from "../../images/frankie_desktop.png"
+import frankieMobile from "../../images/frankie_mobile.png"
+import hitchrisDesktop from "../../images/hitchris_desktop.png"
+import hitchrisMobile from "../../images/hitchris_mobile.png"
 import styles from "./Works.module.scss"
 
 const sliderSettings = {
@@ -47,18 +50,30 @@ const sliderSettings = {
 }
 
 const Works = () => (
-  // <ContainerViewPort viewPort={85} className={styles.container}>
-  <div className={styles.container}>
-    <div className={styles.head}>
-      <Title text="My Works" />
+  <Element name="Work">
+    <div className={styles.container}>
+      <div className={styles.head}>
+        <Title text="My Works" />
+      </div>
+      <Slider {...sliderSettings}>
+        <Card
+          imgDesktop={danieltrevinoDesktop}
+          imgMobile={danieltrevinoMobile}
+          href="https://github.com/danielivert/danieltrevino.se"
+        />
+        <Card
+          imgDesktop={frankieDesktop}
+          imgMobile={frankieMobile}
+          href="https://frankie.danieltrevino.se/"
+        />
+        <Card
+          imgDesktop={hitchrisDesktop}
+          imgMobile={hitchrisMobile}
+          href="https://hitchris.com"
+        />
+      </Slider>
     </div>
-    <Slider {...sliderSettings}>
-      <Card img={danieltrevinoImg} />
-      <Card img={frankieImg} />
-      <Card img={hitchrisImg} />
-    </Slider>
-  </div>
-  // </ContainerViewPort>
+  </Element>
 )
 
 export default Works

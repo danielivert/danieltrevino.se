@@ -28,6 +28,9 @@
   -webkit-transform: skew(0, -12deg);
   transform: skew(0, -12deg);
   content: '';
+  @include bp(lg) {
+    top: 90%;
+  }
   @include bp(sm) {
     max-height: 35%;
   }

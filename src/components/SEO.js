@@ -2,7 +2,7 @@
 import * as React from "react"
 import Helmet from "react-helmet"
 import favicon from "../images/favicon.png"
-import danieltrevinoImg from "../images/danieltrevino.se.png"
+import danieltrevinoImg from "../images/danieltrevino_desktop.png"
 
 type Props = {
   data: Object
@@ -25,12 +25,15 @@ class SEO extends React.Component<Props> {
   }
   render() {
     const { title, description, keywords } = this.props.data.site.siteMetadata
+    const { publicURL } = this.props.data.ogImage.edges[0].node
+
     return (
       <Helmet
         title={title}
         meta={[
           { name: "description", content: description },
-          { name: "keywords", content: keywords }
+          { name: "keywords", content: keywords },
+          { name: "image", content: danieltrevinoImg }
         ]}
       >
         <html lang="en" />
@@ -45,7 +48,7 @@ class SEO extends React.Component<Props> {
         <meta name="twitter:creator" content="@danielivert" />
         <meta name="twitter:image" content={danieltrevinoImg} />
 
-        <meta property="og:image" content={danieltrevinoImg} />
+        <meta property="og:image" content={publicURL} />
         <meta property="og:description" content={description} />
         <meta property="og:site_name" content={title} />
 

@@ -1,4 +1,5 @@
 // @flow
+const path = require("path")
 module.exports = {
   siteMetadata: {
     title: "Daniel Treviño",
@@ -16,6 +17,8 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-offline",
     "gatsby-plugin-sass",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -32,6 +35,13 @@ module.exports = {
       resolve: "gatsby-plugin-typography",
       options: {
         pathToConfigModule: "src/utils/typography"
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: path.join(__dirname, "src", "images")
       }
     }
   ]
