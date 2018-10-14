@@ -4,17 +4,18 @@ import styles from "./Navigation.module.scss"
 import { Link } from "react-scroll"
 
 type MenuItemProps = {
-  text: string
+  text: string,
+  offset: number
 }
 
-const MenuItem = ({ text }: MenuItemProps) => (
+const MenuItem = ({ text, offset }: MenuItemProps) => (
   <Link
     className={styles.listItem}
     activeClass="active"
     to={text}
     spy={true}
     smooth={true}
-    offset={50}
+    offset={offset}
     duration={500}
   >
     {text}
@@ -23,9 +24,9 @@ const MenuItem = ({ text }: MenuItemProps) => (
 
 const MenuList = () => (
   <ul className={styles.menuList}>
-    <MenuItem text="About" />
-    <MenuItem text="Work" />
-    <MenuItem text="Contact" />
+    <MenuItem text="About" offset={0} />
+    <MenuItem text="Work" offset={-50} />
+    <MenuItem text="Contact" offset={0} />
   </ul>
 )
 
