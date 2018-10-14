@@ -27,8 +27,6 @@ class SEO extends React.Component<Props> {
     const { title, description, keywords } = this.props.data.site.siteMetadata
     const { publicURL } = this.props.data.ogImage.edges[0].node
 
-    console.log("das", this.props.data.site.siteMetadata)
-    console.log("keywords", keywords)
     return (
       <Helmet
         title={title}
