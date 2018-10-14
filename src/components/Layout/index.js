@@ -17,6 +17,8 @@ const Layout = ({ children }: Props) => (
         site {
           siteMetadata {
             title
+            description
+            keywords
           }
         }
 

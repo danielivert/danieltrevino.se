@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: "Daniel Treviño",
     description:
-      "Hello, I am Daniel Treviño. Fullstack Website Developer.Based in Stockholm, Sweden.",
+      "Hello, I am Daniel Treviño. Fullstack Website Developer. Based in Stockholm, Sweden.",
     keywords: "developer, stockholm, fullstack, react, frontend, backend, node",
     heroHeader: {
       title: "Hello, I am ",
