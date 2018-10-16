@@ -53,7 +53,7 @@ const Works = () => (
   <Element name="Work">
     <div className={styles.container}>
       <div className={styles.head}>
-        <Title text="My Works" />
+        <Title text="My Work" />
       </div>
       <Slider {...sliderSettings}>
         <Card
