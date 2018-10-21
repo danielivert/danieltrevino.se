@@ -1,7 +1,6 @@
 // @flow
 import * as React from "react"
 import Helmet from "react-helmet"
-import favicon from "../images/favicon.png"
 
 type Props = {
   data: Object
@@ -25,6 +24,7 @@ class SEO extends React.Component<Props> {
   render() {
     const { title, description, keywords } = this.props.data.site.siteMetadata
     const { publicURL } = this.props.data.ogImage.edges[0].node
+    const favicon = this.props.data.favicon.edges[0].node.publicURL
     const ogImage = publicURL
 
     return (

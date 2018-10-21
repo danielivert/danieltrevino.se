@@ -33,6 +33,16 @@ const Layout = ({ children }: Props) => (
             }
           }
         }
+
+        favicon: allFile(filter: { relativePath: { eq: "favicon.png" } }) {
+          edges {
+            node {
+              id
+              name
+              publicURL
+            }
+          }
+        }
       }
     `}
     render={(data: Object) => (
