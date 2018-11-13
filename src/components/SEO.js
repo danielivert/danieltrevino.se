@@ -47,8 +47,8 @@ class SEO extends React.Component<Props> {
         <meta name="twitter:description" content={description} />
         <meta name="twitter:creator" content="@danielivert" />
         <meta name="twitter:image" content={ogImage} />
+        <meta name="description" content={description} />§
         <meta property="og:image" content={ogImage} />
-        <meta property="description" content={description} />§
         <meta property="og:description" content={description} />
         <meta property="og:site_name" content={title} />
         <script
