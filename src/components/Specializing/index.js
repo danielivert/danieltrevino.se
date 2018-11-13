@@ -20,7 +20,7 @@ const SkillBox = ({ href, logo, title, spin = false }: SkillBoxProps) => (
   <div className={`column is-6-mobile is-4-desktop ${styles.skill}`}>
     <a href={href} target="_blank" rel="noopener noreferrer">
       <div className={`${styles.boxLogo} ${spin ? styles.spin : ""}`}>
-        <img src={logo} />
+        <img src={logo} alt="logo" />
       </div>
       <div className={styles.boxTitle}>
         <h4>{title}</h4>

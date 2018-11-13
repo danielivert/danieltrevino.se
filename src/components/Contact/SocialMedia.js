@@ -14,7 +14,7 @@ type ItemProps = {
 const Item = ({ logo, href }: ItemProps) => (
   <div className={styles.item}>
     <a href={href} target="_blank" rel="noopener noreferrer">
-      <img src={logo} />
+      <img src={logo} alt="logo" />
     </a>
   </div>
 )

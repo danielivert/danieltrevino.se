@@ -15,10 +15,10 @@ const Mobile = props => <Responsive {...props} maxWidth={991} />
 const Card = ({ imgDesktop, imgMobile = imgDesktop, href }: Props) => (
   <div className={styles.container}>
     <Desktop>
-      <img src={imgDesktop} />
+      <img src={imgDesktop} alt="portfolio_item" />
     </Desktop>
     <Mobile>
-      <img src={imgMobile} />
+      <img src={imgMobile} alt="portfolio_item" />
     </Mobile>
     <div className={styles.footer}>
       <div className={styles.button}>

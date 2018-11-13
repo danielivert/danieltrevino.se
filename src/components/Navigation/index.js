@@ -9,17 +9,18 @@ type MenuItemProps = {
 }
 
 const MenuItem = ({ text, offset }: MenuItemProps) => (
-  <Link
-    className={styles.listItem}
-    activeClass="active"
-    to={text}
-    spy={true}
-    smooth={true}
-    offset={offset}
-    duration={500}
-  >
-    {text}
-  </Link>
+  <li className={styles.listItem}>
+    <Link
+      activeClass="active"
+      to={text}
+      spy={true}
+      smooth={true}
+      offset={offset}
+      duration={500}
+    >
+      {text}
+    </Link>
+  </li>
 )
 
 const MenuList = () => (
