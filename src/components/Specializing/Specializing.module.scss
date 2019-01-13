@@ -1,5 +1,5 @@
-@import 'src/styles/vars.scss';
-@import 'src/styles/mixins.scss';
+@import "src/styles/vars.scss";
+@import "src/styles/mixins.scss";
 
 .container {
   width: 60%;
@@ -27,7 +27,7 @@
   background: $gradient-blue;
   -webkit-transform: skew(0, -12deg);
   transform: skew(0, -12deg);
-  content: '';
+  content: "";
   @include bp(lg) {
     top: 90%;
   }

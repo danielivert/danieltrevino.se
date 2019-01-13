@@ -8,6 +8,7 @@ import reduxLogo from "../../images/redux-logo.svg"
 import mobxLogo from "../../images/mobx-logo.svg"
 import flowLogo from "../../images/flow-logo.svg"
 import styles from "./Specializing.module.scss"
+import posed from "react-pose"
 
 type SkillBoxProps = {
   href: string,
@@ -16,8 +17,29 @@ type SkillBoxProps = {
   spin?: boolean
 }
 
+const Parent = posed.div({
+  enter: {
+    staggerChildren: 150,
+    delayChildren: 200,
+    opacity: 1,
+    beforeChildren: true
+  }
+})
+
+const Child = posed.div({
+  hoverable: true,
+  hover: {
+    scale: 1.2
+  },
+  init: {
+    scale: 1
+  },
+  enter: { y: 0, opacity: 1 },
+  exit: { y: 50, opacity: 0 }
+})
+
 const SkillBox = ({ href, logo, title, spin = false }: SkillBoxProps) => (
-  <div className={`column is-6-mobile is-4-desktop ${styles.skill}`}>
+  <Child className={`column is-6-mobile is-4-desktop ${styles.skill}`}>
     <a href={href} target="_blank" rel="noopener noreferrer">
       <div className={`${styles.boxLogo} ${spin ? styles.spin : ""}`}>
         <img src={logo} alt="logo" />
@@ -26,13 +48,17 @@ const SkillBox = ({ href, logo, title, spin = false }: SkillBoxProps) => (
         <h4>{title}</h4>
       </div>
     </a>
-  </div>
+  </Child>
 )
 
 const Specializing = () => (
   <div className={styles.container}>
     <Title text="I specialize in" />
-    <div className="columns is-multiline is-mobile">
+    <Parent
+      className="columns is-multiline is-mobile"
+      initialPose="exit"
+      pose="enter"
+    >
       <SkillBox
         href="https://reactjs.org/"
         logo={reactLogo}
@@ -56,7 +82,7 @@ const Specializing = () => (
         title="MobX"
       />
       <SkillBox href="https://flow.org/" logo={flowLogo} title="Flow" />
-    </div>
+    </Parent>
   </div>
 )
 
