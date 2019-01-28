@@ -11,6 +11,7 @@ import frankieMobile from "../../images/frankie_mobile.png"
 import hitchrisDesktop from "../../images/hitchris_desktop.png"
 import hitchrisMobile from "../../images/hitchris_mobile.png"
 import styles from "./Works.module.scss"
+import ScrollAnimation from "react-animate-on-scroll"
 
 const sliderSettings = {
   className: "center",
@@ -50,30 +51,32 @@ const sliderSettings = {
 }
 
 const Works = () => (
-  <Element name="Work">
-    <div className={styles.container}>
-      <div className={styles.head}>
-        <Title text="My Work" />
+  <ScrollAnimation animateIn="fadeInRight" offset={200} animateOnce>
+    <Element name="Work">
+      <div className={styles.container}>
+        <div className={styles.head}>
+          <Title text="My Work" />
+        </div>
+        <Slider {...sliderSettings}>
+          <Card
+            imgDesktop={danieltrevinoDesktop}
+            imgMobile={danieltrevinoMobile}
+            href="https://github.com/danielivert/danieltrevino.se"
+          />
+          <Card
+            imgDesktop={frankieDesktop}
+            imgMobile={frankieMobile}
+            href="https://frankie.danieltrevino.se/"
+          />
+          <Card
+            imgDesktop={hitchrisDesktop}
+            imgMobile={hitchrisMobile}
+            href="https://hitchris.com"
+          />
+        </Slider>
       </div>
-      <Slider {...sliderSettings}>
-        <Card
-          imgDesktop={danieltrevinoDesktop}
-          imgMobile={danieltrevinoMobile}
-          href="https://github.com/danielivert/danieltrevino.se"
-        />
-        <Card
-          imgDesktop={frankieDesktop}
-          imgMobile={frankieMobile}
-          href="https://frankie.danieltrevino.se/"
-        />
-        <Card
-          imgDesktop={hitchrisDesktop}
-          imgMobile={hitchrisMobile}
-          href="https://hitchris.com"
-        />
-      </Slider>
-    </div>
-  </Element>
+    </Element>
+  </ScrollAnimation>
 )
 
 export default Works

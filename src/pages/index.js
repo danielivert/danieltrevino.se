@@ -5,6 +5,7 @@ import HeroHeader from "components/HeroHeader"
 import Specializing from "components/Specializing"
 import Works from "components/Works"
 import Contact from "components/Contact"
+import "animate.css/animate.min.css"
 
 const IndexPage = () => (
   <Layout>
