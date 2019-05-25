@@ -6,16 +6,21 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
+    "@types/styled-components": "^4.1.15",
+    "@types/typescript": "^2.0.0",
     "gatsby": "^2.7.1",
+    "gatsby-plugin-typescript": "^2.0.15",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.2.0",
+    "typescript": "^3.4.5"
   },
   "devDependencies": {
     "prettier": "^1.17.1"

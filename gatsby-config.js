@@ -5,5 +5,9 @@
  */
 
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    name: 'Danieltrevino',
+    tagline: `Fullstack web developer`
+  },
+  plugins: ['gatsby-plugin-typescript']
 }
