@@ -31,7 +31,7 @@ const Wrapper = styled.div`
 const IndexPage = (props: IndexPageProps) => {
   return (
     <Wrapper>
-      <h1>Hello world! {props.data.site.siteMetadata.name}</h1>
+      <h1>Hello world!</h1>
     </Wrapper>
   )
 }
