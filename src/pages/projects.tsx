@@ -1,8 +1,9 @@
 import * as React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
+import Projects from '../components/Projects'
 
-interface IndexPageProps {
+interface ProjectsPageProps {
   data: {
     site: {
       siteMetadata: {
@@ -13,8 +14,8 @@ interface IndexPageProps {
   }
 }
 
-export const indexPageQuery = graphql`
-  query IndexPageQuery {
+export const projectsPageQuery = graphql`
+  query ProjectsPageQuery {
     site {
       siteMetadata {
         name
@@ -25,18 +26,16 @@ export const indexPageQuery = graphql`
 `
 
 const Wrapper = styled.div`
-  background: red;
+  background: blue;
 `
 
-const IndexPage = (props: IndexPageProps) => {
+const ProjectsPage = (props: ProjectsPageProps) => {
   return (
     <Wrapper>
-      <h1>Hello world!</h1>
-      <p>
-        Go to <Link to="/projects">projects</Link>
-      </p>
+      <h1>Hello projects!</h1>
+      <Projects />
     </Wrapper>
   )
 }
 
-export default IndexPage
+export default ProjectsPage

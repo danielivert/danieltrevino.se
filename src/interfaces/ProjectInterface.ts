@@ -1,5 +1,9 @@
 export interface IProject {
   node: {
+    _meta: {
+      uid: string
+    }
+
     title: [
       {
         type: string

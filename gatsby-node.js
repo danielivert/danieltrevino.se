@@ -27,7 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   projects.data.prismic.allProjects.edges.forEach(edge => {
     createPage({
-      path: `project/${edge.node._meta.uid}`,
+      path: `projects/${edge.node._meta.uid}`,
       component: template,
       context: edge.node
     })

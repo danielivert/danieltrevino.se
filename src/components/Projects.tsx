@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import { IProjectPrismic, IProject } from '../interfaces/ProjectInterface'
 
 export const projectsQuery = graphql`
@@ -8,6 +8,10 @@ export const projectsQuery = graphql`
       allProjects {
         edges {
           node {
+            _meta {
+              uid
+            }
+
             title
             image
             description
@@ -26,7 +30,14 @@ const Projects = () => {
   return (
     <div>
       {projects.map((project: IProject, i: number) => {
-        return <h1 key={i}>{project.node.title[0].text}</h1>
+        const projectTitle = project.node.title[0].text
+        const uId = project.node._meta.uid
+
+        return (
+          <h2 key={i}>
+            <Link to={`/projects/${uId}`}>{projectTitle}</Link>
+          </h2>
+        )
       })}
     </div>
   )

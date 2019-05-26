@@ -16,9 +16,15 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     name: 'Danieltrevino',
-    tagline: `Fullstack web developer`
+    tagline: 'Fullstack web developer'
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-typography',
+      options: {
+        pathToConfigModule: './src/utils/typography'
+      }
+    },
     {
       resolve: 'gatsby-source-prismic-graphql',
       options: {
