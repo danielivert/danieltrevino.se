@@ -33,6 +33,7 @@ module.exports = {
         linkResolver: ({ node, key, value }) => post => `/${post.uid}`
       }
     },
-    'gatsby-plugin-typescript'
+    'gatsby-plugin-typescript',
+    'gatsby-plugin-offline'
   ]
 }

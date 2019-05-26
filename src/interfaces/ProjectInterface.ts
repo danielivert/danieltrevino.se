@@ -1,32 +1,13 @@
+import { PrismicObject, PrismicImageObject } from './PrismicInterface'
+
 export interface IProject {
   node: {
     _meta: {
       uid: string
     }
-
-    title: [
-      {
-        type: string
-        text: string
-        spans: any
-      }
-    ]
-
-    image: [
-      {
-        type: string
-        text: string
-        spans: any
-      }
-    ]
-
-    description: [
-      {
-        type: string
-        text: string
-        spans: any
-      }
-    ]
+    title: Array<PrismicObject>
+    image: PrismicImageObject
+    description: Array<PrismicObject>
   }
 }
 
