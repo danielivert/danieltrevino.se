@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
+import Hero from '../components/Hero'
 
 interface IndexPageProps {
   data: {
@@ -25,16 +26,14 @@ export const indexPageQuery = graphql`
 `
 
 const Wrapper = styled.div`
-  background: red;
+  width: 100%;
+  height: 100%;
 `
 
 const IndexPage = (props: IndexPageProps) => {
   return (
     <Wrapper>
-      <h1>Hello world!</h1>
-      <p>
-        Go to <Link to="/projects">projects</Link>
-      </p>
+      <Hero />
     </Wrapper>
   )
 }
