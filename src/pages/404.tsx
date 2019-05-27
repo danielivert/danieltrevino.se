@@ -7,6 +7,7 @@ import {
 } from '../interfaces/PrismicInterface'
 import PageLayout from '../components/PageLayout'
 import { gutter } from '../utils/variables'
+import Layout from '../components/Layout'
 
 interface NotFoundPageProps {
   data: {
@@ -109,13 +110,15 @@ const NotFoundPage = (props: NotFoundPageProps) => {
   const buttonText = pageData.back_button_text[0].text
 
   return (
-    <Wrapper backgroundImage={backgroundImage}>
-      <Title>
-        {title}
-        <span>{subText}</span>
-      </Title>
-      <BackButton to="/">{buttonText}</BackButton>
-    </Wrapper>
+    <Layout>
+      <Wrapper backgroundImage={backgroundImage}>
+        <Title>
+          {title}
+          <span>{subText}</span>
+        </Title>
+        <BackButton to="/">{buttonText}</BackButton>
+      </Wrapper>
+    </Layout>
   )
 }
 

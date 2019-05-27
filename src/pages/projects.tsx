@@ -1,40 +1,21 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
+
 import styled from 'styled-components'
 import Projects from '../components/Projects'
-
-interface ProjectsPageProps {
-  data: {
-    site: {
-      siteMetadata: {
-        name: string
-        tagline: string
-      }
-    }
-  }
-}
-
-export const projectsPageQuery = graphql`
-  query ProjectsPageQuery {
-    site {
-      siteMetadata {
-        name
-        tagline
-      }
-    }
-  }
-`
+import Layout from '../components/Layout'
 
 const Wrapper = styled.div`
   background: blue;
 `
 
-const ProjectsPage = (props: ProjectsPageProps) => {
+const ProjectsPage = () => {
   return (
-    <Wrapper>
-      <h1>Hello projects!</h1>
-      <Projects />
-    </Wrapper>
+    <Layout>
+      <Wrapper>
+        <h1>Hello projects!</h1>
+        <Projects />
+      </Wrapper>
+    </Layout>
   )
 }
 

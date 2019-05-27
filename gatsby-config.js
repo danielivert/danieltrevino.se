@@ -15,8 +15,10 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    name: 'Danieltrevino',
-    tagline: 'Fullstack web developer'
+    title: 'Daniel Treviño',
+    description:
+      'Hello, I am Daniel Treviño. Fullstack Web Developer. Based in Stockholm, Sweden.',
+    keywords: 'developer, stockholm, fullstack, react, frontend, backend, node'
   },
   plugins: [
     {

@@ -5,13 +5,14 @@
   "version": "2.0.0",
   "scripts": {
     "build": "gatsby build",
-    "dev": "gatsby develop",
+    "dev": "gatsby develop -H 0.0.0.0",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
+    "@types/react-helmet": "^5.0.8",
     "@types/styled-components": "^4.1.15",
     "@types/typescript": "^2.0.0",
     "@types/typography": "^0.16.2",
@@ -23,6 +24,7 @@
     "prismic-reactjs": "^0.3.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
     "react-pose": "^4.0.8",
     "react-typography": "^0.16.19",
     "styled-components": "^4.2.0",
