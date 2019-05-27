@@ -34,7 +34,7 @@ const GA_ID = process.env.GA_ID
 
 const SEO = () => {
   const result: ISEO = useStaticQuery(seoQuery)
-  console.log('result', result)
+
   const { title, description, keywords } = result.site.siteMetadata
 
   const initGA = () => {
