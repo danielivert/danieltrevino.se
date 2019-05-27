@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
+import posed from 'react-pose'
 import backgroundImage from '../images/background.svg'
 import {
   PrismicObject,
@@ -22,6 +23,20 @@ export interface IHeroPrismic {
     }
   }
 }
+
+const Name = posed.h1({
+  enter: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delay: 350
+    }
+  },
+  exit: {
+    opacity: 1,
+    scale: 0
+  }
+})
 
 const Wrapper = styled.div`
   position: relative;
@@ -51,14 +66,15 @@ const Title = styled.div`
   h1 {
     font-size: 5rem;
     margin: 0;
+    margin-bottom: 1.45rem;
   }
   p {
-    margin: 0;
+    color: #dadada;
+    font-size: 1.5rem;
 
-    span {
-      color: #bdbdbd;
-      font-size: 2rem;
-    }
+    ${media.phone`
+      font-size: 1.2rem;
+    `}
   }
 `
 
@@ -125,10 +141,10 @@ const Hero = () => {
   return (
     <Wrapper>
       <Title>
-        <p>
-          <span>{titleFirst}</span>
-        </p>
-        <h1>{name}</h1>
+        <p>{titleFirst}</p>
+        <Name pose="enter" initialPose="exit">
+          {name}
+        </Name>
         <p>{titleSecond}</p>
         <p>{titleThird}</p>
       </Title>
@@ -136,10 +152,6 @@ const Hero = () => {
       <Profile>
         <img src={profileImage} />
       </Profile>
-
-      <p>
-        Go to <Link to="/projects">projects</Link>
-      </p>
     </Wrapper>
   )
 }

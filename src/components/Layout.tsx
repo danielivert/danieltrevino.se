@@ -1,16 +1,19 @@
 import * as React from 'react'
 import SEO from './SEO'
+import Navigation from './Navigation'
+import { Normalize } from 'styled-normalize'
 
 type Props = {
   children: React.ReactNode
 }
 
 const Layout = ({ children }: Props) => (
-  <div>
+  <React.Fragment>
+    <Normalize />
     <SEO />
-    {/* <Navigation  /> */}
+    <Navigation />
     <div>{children}</div>
-  </div>
+  </React.Fragment>
 )
 
 export default Layout
