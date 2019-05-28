@@ -19,7 +19,7 @@
     "gatsby-plugin-typography": "^2.2.13",
     "gatsby-source-filesystem": "^2.0.37",
     "gatsby-transformer-sharp": "^2.1.3",
-    "node-sass": "^4.9.3",
+    "node-sass": "^4.12.0",
     "react": "^16.5.1",
     "react-animate-on-scroll": "^2.1.5",
     "react-dom": "^16.8.6",
