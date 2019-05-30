@@ -82,11 +82,29 @@ export const navigationQuery = graphql`
 `
 
 const Navigation = () => {
+  const navRef: any = React.useRef<HTMLDivElement>(null)
+  const [navigationHeight, setNavigationHeight] = React.useState()
   const result: INavigationPrismic = useStaticQuery(navigationQuery)
   const data = result.prismicNavigation.data
 
+  const handleScroll = () => {
+    const currentUserScroll = window.scrollY
+
+    if (currentUserScroll > navigationHeight) {
+      console.log('Add new state', currentUserScroll, navigationHeight)
+    } else {
+      console.log('Back to default')
+    }
+  }
+  React.useEffect(() => {
+    const height = navRef.current.getBoundingClientRect().height
+
+    setNavigationHeight(height)
+    window.addEventListener('scroll', handleScroll)
+  }, [navigationHeight])
+
   return (
-    <Nav>
+    <Nav ref={navRef}>
       <ul>
         {data.nav.map((item: INavigation, i: number) => {
           // Special case for HomePage
