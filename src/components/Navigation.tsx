@@ -36,7 +36,6 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: flex-end;
   padding: 0 2rem;
-  font-size: 0.8rem;
 
   ul {
     list-style: none;

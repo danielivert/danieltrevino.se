@@ -1,7 +1,7 @@
 import Typography from 'typography'
 const fairyGateTheme = require('typography-theme-fairy-gates')
 
-fairyGateTheme.baseFontSize = '22px'
+fairyGateTheme.baseFontSize = '18px'
 fairyGateTheme.headerFontFamily = ['Montserrat', 'sans-serif']
 fairyGateTheme.bodyFontFamily = ['Roboto', 'sans-serif']
 fairyGateTheme.googleFonts = [
