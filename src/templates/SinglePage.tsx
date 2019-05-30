@@ -1,23 +1,25 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import Hero from '../components/Hero'
+import { IProject } from '../interfaces/ProjectInterface'
 import Layout from '../components/Layout'
-import Stack from '../components/Stack'
+
+interface IProps {
+  pageContext: IProject
+}
 
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 `
 
-const IndexPage = () => {
+const SinglePage = (props: IProps) => {
   return (
     <Layout>
       <Wrapper>
-        <Hero />
-        <Stack />
+        <h1>Works</h1>
       </Wrapper>
     </Layout>
   )
 }
 
-export default IndexPage
+export default SinglePage

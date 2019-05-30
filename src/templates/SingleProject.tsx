@@ -1,14 +1,19 @@
 import * as React from 'react'
+import { IProject } from '../interfaces/ProjectInterface'
 
-const SingleProject = (props: any) => {
-  const { pageContext } = props
+interface IProps {
+  pageContext: IProject
+}
 
-  return (
-    <div>
-      <h1>{pageContext.title[0].text}</h1>
-      <p>{pageContext.description[0].text}</p>
-    </div>
-  )
+const SingleProject = (props: IProps) => {
+  const data = props.pageContext.data
+  const titleHtml = data.title.html
+  const descriptionHtml = data.description.html
+
+  const generateMarkup = () => {
+    return { __html: `${titleHtml} ${descriptionHtml}` }
+  }
+  return <div dangerouslySetInnerHTML={generateMarkup()} />
 }
 
 export default SingleProject

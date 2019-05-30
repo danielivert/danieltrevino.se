@@ -1,20 +1,15 @@
-import { PrismicObject, PrismicImageObject } from './PrismicInterface'
+import { PrismicObject } from './PrismicInterface'
 
 export interface IProject {
-  node: {
-    _meta: {
-      uid: string
-    }
-    title: Array<PrismicObject>
-    image: PrismicImageObject
-    description: Array<PrismicObject>
+  uid: string
+  data: {
+    title: PrismicObject
+    description: PrismicObject
   }
 }
 
 export interface IProjectPrismic {
-  prismic: {
-    allProjects: {
-      edges: Array<IProject>
-    }
+  allPrismicProject: {
+    nodes: Array<IProject>
   }
 }

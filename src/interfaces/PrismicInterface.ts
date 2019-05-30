@@ -1,15 +1,13 @@
 export interface PrismicObject {
-  type: string
+  html: string
   text: string
-  spans: any
+  raw: any
 }
 
 export interface PrismicImageObject {
-  dimensions: {
-    width: number
-    height: number
-  }
   alt: string
-  copyright: string
+  localfile: {
+    childImageSharp: any
+  }
   url: string
 }

@@ -3,18 +3,18 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import { IProjectPrismic, IProject } from '../interfaces/ProjectInterface'
 
 export const projectsQuery = graphql`
-  query ProjectsQuery {
-    prismic {
-      allProjects {
-        edges {
-          node {
-            _meta {
-              uid
-            }
-
-            title
-            image
-            description
+  query AllProjects {
+    allPrismicProject {
+      nodes {
+        uid
+        data {
+          title {
+            html
+            text
+          }
+          description {
+            html
+            text
           }
         }
       }
@@ -24,18 +24,18 @@ export const projectsQuery = graphql`
 
 const Projects = () => {
   const result: IProjectPrismic = useStaticQuery(projectsQuery)
-
-  const projects = result.prismic.allProjects.edges
+  const projects = result.allPrismicProject.nodes
 
   return (
     <div>
-      {projects.map((project: IProject, i: number) => {
-        const projectTitle = project.node.title[0].text
-        const uId = project.node._meta.uid
+      {projects.map((project: IProject, i: any) => {
+        const data = project.data
+        const uId = project.uid
+        const title = data.title.text
 
         return (
           <h2 key={i}>
-            <Link to={`/projects/${uId}`}>{projectTitle}</Link>
+            <Link to={`/projects/${uId}`}>{title}</Link>
           </h2>
         )
       })}

@@ -11,32 +11,42 @@ import Layout from '../components/Layout'
 
 interface NotFoundPageProps {
   data: {
-    prismic: {
-      allNot_found_pages: {
-        edges: [
-          {
-            node: {
-              title: Array<PrismicObject>
-              background_image: PrismicImageObject
-              back_button_text: Array<PrismicObject>
-            }
-          }
-        ]
+    prismicNotFoundPage: {
+      data: {
+        title: PrismicObject
+        description: PrismicObject
+        background_image: PrismicImageObject
+        back_button_text: PrismicObject
       }
     }
   }
 }
 
 export const notFoundPageQuery = graphql`
-  query NotFoundPage {
-    prismic {
-      allNot_found_pages {
-        edges {
-          node {
-            title
-            background_image
-            back_button_text
+  query NotFoundPageQuery {
+    prismicNotFoundPage {
+      data {
+        title {
+          text
+          html
+        }
+        description {
+          text
+          html
+        }
+        background_image {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1140, quality: 100) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
           }
+          url
+          alt
+        }
+        back_button_text {
+          text
         }
       }
     }
@@ -70,9 +80,14 @@ const Title = styled.h1`
   text-align: center;
   font-size: 5rem;
 
-  span {
+  h1 {
+    margin: 0;
+  }
+
+  p {
     font-size: 1rem;
-    display: flex;
+    margin: 0;
+    padding: 0;
   }
 `
 
@@ -103,19 +118,19 @@ const BackButton = styled(Link)`
 `
 
 const NotFoundPage = (props: NotFoundPageProps) => {
-  const pageData = props.data.prismic.allNot_found_pages.edges[0].node
-  const title = pageData.title[0].text.split('|')[0]
-  const subText = pageData.title[0].text.split('|')[1] || ''
-  const backgroundImage = pageData.background_image.url
-  const buttonText = pageData.back_button_text[0].text
+  const { data } = props.data.prismicNotFoundPage
+  const titleHtml = data.title.html
+  const descriptionHtml = data.description.html
+  const backgroundImage = data.background_image.url
+  const buttonText = data.back_button_text.text
 
+  const createMarkup = () => {
+    return { __html: `${titleHtml} ${descriptionHtml}` }
+  }
   return (
-    <Layout>
+    <Layout hideNavigation>
       <Wrapper backgroundImage={backgroundImage}>
-        <Title>
-          {title}
-          <span>{subText}</span>
-        </Title>
+        <Title dangerouslySetInnerHTML={createMarkup()} />
         <BackButton to="/">{buttonText}</BackButton>
       </Wrapper>
     </Layout>

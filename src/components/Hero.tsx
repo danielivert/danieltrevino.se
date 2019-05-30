@@ -2,24 +2,22 @@ import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import posed from 'react-pose'
-import backgroundImage from '../images/background.svg'
 import {
   PrismicObject,
   PrismicImageObject
 } from '../interfaces/PrismicInterface'
 import { media } from '../utils/media'
+import Image from './Image'
 
-export interface IHero {
-  node: {
-    title: Array<PrismicObject>
-    image: PrismicImageObject
-  }
-}
+const backgroundImage = require('../images/background.svg') as string
 
 export interface IHeroPrismic {
-  prismic: {
-    allHomepages: {
-      edges: Array<IHero>
+  prismicHomepage: {
+    data: {
+      intro: PrismicObject
+      title: PrismicObject
+      description: PrismicObject
+      image: PrismicImageObject
     }
   }
 }
@@ -40,9 +38,8 @@ const Name = posed.h1({
 
 const Wrapper = styled.div`
   position: relative;
-  margin: 0 auto;
   height: 100vh;
-  width: 100%;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,49 +76,48 @@ const Title = styled.div`
 `
 
 const Profile = styled.div`
-  top: 0;
-  height: 80vh;
+  position: absolute;
   width: 100%;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: flex-end;
-  padding-right: 5rem;
-  position: absolute;
-  
+`
 
-  ${media.phone`
-    margin-right: 0;
-    right: -35%;
-    width: 15rem;
-    overflow-x: hidden;
-  `}
+const Img = styled(Image)`
+  position: absolute;
+  opacity: 0.8;
 
   ${media.tablet`
-    margin-right: 0;
-    right: -32%;
-    overflow-x: hidden;
-    padding-right: 0;
+    margin-left: -30%;
   `}
-
-  ${media.desktop`
-    padding-right: 0;
-  `}
-
-  img {
-    opacity: 0.8;
-    position: absolute;
-  }
 `
 
 export const heroQuery = graphql`
-  query HeroQuery {
-    prismic {
-      allHomepages {
-        edges {
-          node {
-            title
-            image
+  query Homepage {
+    prismicHomepage {
+      data {
+        intro {
+          text
+          html
+        }
+        title {
+          text
+          html
+        }
+        description {
+          text
+          html
+        }
+        image {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 450, quality: 100) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
           }
+          url
+          alt
         }
       }
     }
@@ -130,27 +126,24 @@ export const heroQuery = graphql`
 
 const Hero = () => {
   const result: IHeroPrismic = useStaticQuery(heroQuery)
-  const heroData = result.prismic.allHomepages.edges[0]
-  const titleArray = heroData.node.title[0].text.split('|')
-  const titleFirst = titleArray[0]
-  const name = titleArray[1]
-  const titleSecond = titleArray[2]
-  const titleThird = titleArray[3]
-  const profileImage = heroData.node.image.url
+  const data = result.prismicHomepage.data
+  const intro = data.intro.text
+  const title = data.title.text
+  const description = data.description.text
+  const image = data.image
 
   return (
     <Wrapper>
       <Title>
-        <p>{titleFirst}</p>
+        <p>{intro}</p>
         <Name pose="enter" initialPose="exit">
-          {name}
+          {title}
         </Name>
-        <p>{titleSecond}</p>
-        <p>{titleThird}</p>
+        <p>{description}</p>
       </Title>
 
       <Profile>
-        <img src={profileImage} />
+        <Img fallbackAlt="profile" image={image} />
       </Profile>
     </Wrapper>
   )
