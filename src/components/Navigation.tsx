@@ -86,8 +86,6 @@ const Navigation = () => {
   const result: INavigationPrismic = useStaticQuery(navigationQuery)
   const data = result.prismicNavigation.data
 
-  console.log(data)
-
   return (
     <Nav>
       <ul>
