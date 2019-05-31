@@ -23,19 +23,29 @@ export interface INavigationPrismic {
 }
 
 const Nav = styled.nav`
-  position: fixed;
+  position: absolute;
+  background: ${primaryColor};
   height: 3rem;
   width: 100%;
   top: 0;
   left: 0;
-  background: #ffffff;
-  color: ${primaryColor};
+  color: white;
   font-weight: 800;
   z-index: ${NavigationIndex};
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding: 0 2rem;
+  transition: 0.5s ease;
+
+  ${(p: any) =>
+    p.scrolled &&
+    `
+    position: fixed;
+    background: #ffffff;
+    color: ${primaryColor};
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  `}
 
   ul {
     list-style: none;
@@ -83,6 +93,7 @@ export const navigationQuery = graphql`
 
 const Navigation = () => {
   const navRef: any = React.useRef<HTMLDivElement>(null)
+  const [scrolled, setScrolled] = React.useState(false)
   const [navigationHeight, setNavigationHeight] = React.useState()
   const result: INavigationPrismic = useStaticQuery(navigationQuery)
   const data = result.prismicNavigation.data
@@ -91,8 +102,10 @@ const Navigation = () => {
     const currentUserScroll = window.scrollY
 
     if (currentUserScroll > navigationHeight) {
+      setScrolled(true)
       console.log('Add new state', currentUserScroll, navigationHeight)
     } else {
+      setScrolled(false)
       console.log('Back to default')
     }
   }
@@ -101,10 +114,14 @@ const Navigation = () => {
 
     setNavigationHeight(height)
     window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [navigationHeight])
 
   return (
-    <Nav ref={navRef}>
+    <Nav ref={navRef} scrolled={scrolled}>
       <ul>
         {data.nav.map((item: INavigation, i: number) => {
           // Special case for HomePage
