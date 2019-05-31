@@ -22,7 +22,7 @@ export interface INavigationPrismic {
   }
 }
 
-const Nav = styled.nav`
+const Nav: any = styled.nav`
   position: absolute;
   background: ${primaryColor};
   height: 3rem;
