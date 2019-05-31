@@ -8,7 +8,7 @@ import {
 import Image from './Image'
 import { gutter } from '../utils/variables'
 import { media } from '../utils/media'
-import posed from 'react-pose'
+import AnimateIns from './AnimateIns'
 
 export interface IStackItem {
   stack_title: PrismicObject
@@ -38,16 +38,7 @@ const StackContainer = styled.div`
   margin: 0 auto;
 `
 
-const GridAnimation = posed.div({
-  enter: {
-    staggerChildren: 150,
-    delayChildren: 200,
-    opacity: 1,
-    beforeChildren: true
-  }
-})
-
-const StackGrid = styled(GridAnimation)`
+const StackGrid = styled(AnimateIns)`
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -68,20 +59,9 @@ const Img = styled(Image)`
   }
 `
 
-const ItemAnimation = posed.div({
-  hoverable: true,
-  hover: {
-    scale: 1.2
-  },
-  init: {
-    scale: 1
-  },
-  enter: { y: 0, opacity: 1 },
-  exit: { y: 50, opacity: 0 }
-})
-
-const StackItemWrapper = styled(ItemAnimation)`
+const StackItemWrapper = styled.div`
   text-align: center;
+  transition: 0.3s ease;
 
   a {
     cursor: pointer;
@@ -97,6 +77,10 @@ const StackItemWrapper = styled(ItemAnimation)`
 
   h4 {
     margin: 0;
+  }
+
+  &:hover {
+    transform: translateY(0px) scale(1.2) translateZ(0px);
   }
 `
 
@@ -145,7 +129,7 @@ const Stack = () => {
       <Title>{title}</Title>
 
       <StackContainer>
-        <StackGrid initialPose="exit" pose="enter">
+        <StackGrid delay={200}>
           {items.map((item: IStackItem, i: number) => {
             return (
               <StackItem

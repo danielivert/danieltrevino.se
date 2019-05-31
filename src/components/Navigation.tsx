@@ -103,10 +103,8 @@ const Navigation = () => {
 
     if (currentUserScroll > navigationHeight) {
       setScrolled(true)
-      console.log('Add new state', currentUserScroll, navigationHeight)
     } else {
       setScrolled(false)
-      console.log('Back to default')
     }
   }
   React.useEffect(() => {
