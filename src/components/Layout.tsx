@@ -12,6 +12,7 @@ type Props = {
 const CustomNormalize = styled.div`
   a {
     color: inherit;
+    text-decoration: none;
   }
 `
 
