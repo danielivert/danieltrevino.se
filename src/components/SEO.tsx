@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+const favicon = require('../../static/favicon.png')
 
 interface ISEO {
   site: {
@@ -65,7 +66,7 @@ const SEO = () => {
         name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
       />
-      {/* <link rel="shortcut icon" type="image/png" href={favicon} /> */}
+      <link rel="shortcut icon" type="image/png" href={favicon} />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />

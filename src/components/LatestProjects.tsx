@@ -35,10 +35,27 @@ interface ILatestPoject {
 }
 
 const Wrapper = styled.div`
+  &:before {
+    position: absolute;
+    z-index: 0;
+    left: -2px;
+    right: -5px;
+    top: -100px;
+    height: 150px;
+    width: calc(100% + 5px);
+    -webkit-transform: rotate(-2deg);
+    -ms-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+    content: '';
+    background: ${primaryColor};
+  }
+
+  position: relative;
   margin: 3rem 0;
   background: ${primaryColor};
   color: white;
   padding: 3rem 0;
+  padding-bottom: 6rem;
 `
 
 const Title = styled.h2`

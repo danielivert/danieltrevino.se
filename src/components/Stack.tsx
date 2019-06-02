@@ -31,6 +31,7 @@ export interface IStackPrismic {
 
 const Wrapper = styled.div`
   margin: auto 3rem;
+  padding-bottom: 6rem;
 `
 
 const StackContainer = styled.div`
