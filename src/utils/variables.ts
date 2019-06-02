@@ -7,9 +7,10 @@ export const desktopHeaderHeight = 78
 
 // Colors
 export const primaryColor = '#5c6ac4'
-export const secondaryColor = '#2F2F2F'
+export const secondaryColor = '#FFFFFF'
 export const grayBackground = '#F5F6FA'
 export const textColor = '#0D101B'
+export const textColorWhite = '#FFFFFF'
 export const lightGray = '#e4e4e4'
 export const borderColor = '#e4e4e4'
 export const grayText = '#747474'

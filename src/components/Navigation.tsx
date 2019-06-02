@@ -2,7 +2,12 @@ import * as React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { NavigationIndex } from '../utils/zIndex'
-import { primaryColor, secondaryColor, gutter } from '../utils/variables'
+import {
+  primaryColor,
+  secondaryColor,
+  textColor,
+  gutter
+} from '../utils/variables'
 import { PrismicObject } from '../interfaces/PrismicInterface'
 
 interface INavigation {
@@ -43,7 +48,7 @@ const Nav: any = styled.nav`
     `
     position: fixed;
     background: ${secondaryColor};
-    color: white;
+    color: ${primaryColor};
     box-shadow: 0 5px 10px rgba(0,0,0,.2);
   `}
 
