@@ -4,6 +4,7 @@
   "description": "Personal website",
   "version": "2.0.0",
   "scripts": {
+    "now-build": "npm run build",
     "build": "gatsby build",
     "dev": "gatsby develop -H 0.0.0.0",
     "format": "prettier --write src/**/*.{js,jsx}",
