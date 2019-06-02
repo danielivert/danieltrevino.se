@@ -72,6 +72,7 @@ module.exports = {
         linkResolver: ({ node, key, value }) => post => `/${post.uid}`
       }
     },
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',
     'gatsby-plugin-offline',
     'gatsby-transformer-sharp',
