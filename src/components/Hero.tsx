@@ -9,6 +9,7 @@ import {
 import { media } from '../utils/media'
 import Image from './Image'
 import AnimateIns from './AnimateIns'
+import { secondaryColor } from '../utils/variables'
 
 const backgroundImage = require('../images/background.svg') as string
 
@@ -41,6 +42,7 @@ const Wrapper = styled.div`
   margin-top: -3rem;
   position: relative;
   height: 100vh;
+  background-color: ${secondaryColor};
 
   display: flex;
   justify-content: center;

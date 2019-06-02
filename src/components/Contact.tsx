@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import { secondaryColor } from '../utils/variables'
 
 const Wrapper = styled.div`
   &:before {
@@ -14,16 +15,18 @@ const Wrapper = styled.div`
     -ms-transform: rotate(-2deg);
     transform: rotate(-2deg);
     content: '';
-    background: white;
+    background: ${secondaryColor};
   }
 
   position: relative;
   width: 100%;
+  background: ${secondaryColor};
+  color: white;
 `
 
 const Container = styled.div`
   position: relative;
-  margin: 3rem 3rem;
+  padding: 3rem 3rem;
   display: flex;
   justify-content: center;
 `

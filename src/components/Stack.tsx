@@ -6,7 +6,7 @@ import {
   PrismicImageObject
 } from '../interfaces/PrismicInterface'
 import Image from './Image'
-import { gutter } from '../utils/variables'
+import { secondaryColor, gutter } from '../utils/variables'
 import { media } from '../utils/media'
 import AnimateIns from './AnimateIns'
 
@@ -30,8 +30,10 @@ export interface IStackPrismic {
 }
 
 const Wrapper = styled.div`
-  margin: auto 3rem;
+  padding: auto 3rem;
   padding-bottom: 6rem;
+  background-color: ${secondaryColor};
+  color: white;
 `
 
 const StackContainer = styled.div`
