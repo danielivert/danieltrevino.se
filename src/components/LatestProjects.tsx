@@ -8,7 +8,6 @@ import Image from './Image'
 import styled from 'styled-components'
 import AnimateIns from './AnimateIns'
 import { gutter, primaryColor } from '../utils/variables'
-import { media } from '../utils/media'
 
 export interface ILatestProjectsPrismic {
   prismicHomepageBodyLatestProjects: {
@@ -104,26 +103,16 @@ const ProjectItem = ({
 }: {
   title: string
   image: PrismicImageObject
-  url: { url: string; target: string }
+  url: string
 }) => {
-  const WrapperComponent = () => (
-    <ProjectItemWrapper>
-      <h4>{title}</h4>
-      <Img fallbackAlt={title} image={image} />
-    </ProjectItemWrapper>
+  return (
+    <Link to={url}>
+      <ProjectItemWrapper>
+        <h4>{title}</h4>
+        <Img fallbackAlt={title} image={image} />
+      </ProjectItemWrapper>
+    </Link>
   )
-
-  let component = <WrapperComponent />
-
-  if (url) {
-    component = (
-      <a href={url.url} target={url.target}>
-        <WrapperComponent />
-      </a>
-    )
-  }
-
-  return component
 }
 
 const LatestProjects = () => {
@@ -141,10 +130,7 @@ const LatestProjects = () => {
         <ProjectsGrid delay={200}>
           {projects.map((itemData: ILatestPoject, i: any) => {
             const uid = itemData.latest_projects1.uid
-            const url = {
-              url: `/projects/${uid}`,
-              target: '_self'
-            }
+            const url = `/projects/${uid}`
             const data = itemData.latest_projects1.document[0].data
             const title = data.title.text
 
