@@ -2,27 +2,7 @@ import * as React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { IProjectPrismic, IProject } from '../interfaces/ProjectInterface'
 
-export const projectsQuery = graphql`
-  query AllProjects {
-    allPrismicProject {
-      nodes {
-        uid
-        data {
-          title {
-            html
-            text
-          }
-          description {
-            html
-            text
-          }
-        }
-      }
-    }
-  }
-`
-
-const Projects = () => {
+const Projects = (props: any) => {
   const result: IProjectPrismic = useStaticQuery(projectsQuery)
   const projects = result.allPrismicProject.nodes
 
@@ -44,3 +24,23 @@ const Projects = () => {
 }
 
 export default Projects
+
+export const projectsQuery = graphql`
+  query AllProjects {
+    allPrismicProject {
+      nodes {
+        uid
+        data {
+          title {
+            html
+            text
+          }
+          description {
+            html
+            text
+          }
+        }
+      }
+    }
+  }
+`

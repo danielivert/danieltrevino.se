@@ -167,7 +167,15 @@ export const stackQuery = graphql`
           text
         }
         stack_image {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 450, quality: 100) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
           url
+          alt
         }
         url {
           target

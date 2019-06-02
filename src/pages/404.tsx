@@ -5,9 +5,8 @@ import {
   PrismicObject,
   PrismicImageObject
 } from '../interfaces/PrismicInterface'
-import PageLayout from '../components/PageLayout'
-import { gutter } from '../utils/variables'
 import Layout from '../components/Layout'
+import { gutter } from '../utils/variables'
 
 interface NotFoundPageProps {
   data: {
@@ -57,7 +56,7 @@ interface IWrapper {
   backgroundImage?: string
 }
 
-const Wrapper = styled(PageLayout)`
+const Wrapper = styled(Layout)`
   margin: 0 auto;
   height: 100vh;
   width: 80%;
@@ -96,8 +95,9 @@ const BackButton = styled(Link)`
   width: auto;
   padding: ${gutter}px;
   height: 45px;
+  color: white !important;
   border-radius: 5px;
-  color: white;
+
   background-image: linear-gradient(
     to right top,
     #15386c,
@@ -128,12 +128,10 @@ const NotFoundPage = (props: NotFoundPageProps) => {
     return { __html: `${titleHtml} ${descriptionHtml}` }
   }
   return (
-    <Layout hideNavigation>
-      <Wrapper backgroundImage={backgroundImage}>
-        <Title dangerouslySetInnerHTML={createMarkup()} />
-        <BackButton to="/">{buttonText}</BackButton>
-      </Wrapper>
-    </Layout>
+    <Wrapper hideNavigation backgroundImage={backgroundImage}>
+      <Title dangerouslySetInnerHTML={createMarkup()} />
+      <BackButton to="/">{buttonText}</BackButton>
+    </Wrapper>
   )
 }
 

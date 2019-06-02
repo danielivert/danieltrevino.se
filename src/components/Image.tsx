@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import get from 'lodash/get'
 import { supportsWebp } from '../utils/imageUtils'
+import { PrismicImageObject } from '../interfaces/PrismicInterface'
 
 const Wrapper = styled.div`
   img {
@@ -10,7 +11,15 @@ const Wrapper = styled.div`
   }
 `
 
-const Image = ({ onLoad, image, className, critical, fallbackAlt }: any) => {
+interface IProps {
+  onLoad?: Function
+  image: PrismicImageObject
+  className?: string
+  critical?: any
+  fallbackAlt: string
+}
+
+const Image = ({ onLoad, image, className, critical, fallbackAlt }: IProps) => {
   const [src, setImgSrc] = useState()
 
   const loadImage = async () => {

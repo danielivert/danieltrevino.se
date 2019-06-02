@@ -8,6 +8,7 @@ import {
 } from '../interfaces/PrismicInterface'
 import { media } from '../utils/media'
 import Image from './Image'
+import AnimateIns from './AnimateIns'
 
 const backgroundImage = require('../images/background.svg') as string
 
@@ -37,6 +38,7 @@ const Name = posed.h1({
 })
 
 const Wrapper = styled.div`
+  margin-top: -3rem;
   position: relative;
   height: 100vh;
 
@@ -134,17 +136,19 @@ const Hero = () => {
 
   return (
     <Wrapper>
-      <Title>
-        <p>{intro}</p>
-        <Name pose="enter" initialPose="exit">
-          {title}
-        </Name>
-        <p>{description}</p>
-      </Title>
+      <AnimateIns delay={100}>
+        <Title>
+          <p>{intro}</p>
+          <Name pose="enter" initialPose="exit">
+            {title}
+          </Name>
+          <p>{description}</p>
+        </Title>
 
-      <Profile>
+        {/* <Profile>
         <Img fallbackAlt="profile" image={image} />
-      </Profile>
+      </Profile> */}
+      </AnimateIns>
     </Wrapper>
   )
 }

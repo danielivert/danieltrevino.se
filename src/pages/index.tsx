@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Hero from '../components/Hero'
 import Layout from '../components/Layout'
 import Stack from '../components/Stack'
+import LatestProjects from '../components/LatestProjects'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -15,6 +16,7 @@ const IndexPage = () => {
       <Wrapper>
         <Hero />
         <Stack />
+        <LatestProjects />
       </Wrapper>
     </Layout>
   )
