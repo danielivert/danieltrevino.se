@@ -21,5 +21,9 @@
       "src": "^/(.*).html",
       "headers": { "cache-control": "public,max-age=0,must-revalidate" }
     }
-  ]
+  ],
+  "env": {
+    "API_KEY": "@prisma-danieltrevino-token",
+    "GA_ID": "@danieltrevino-ga-id"
+  }
 }
