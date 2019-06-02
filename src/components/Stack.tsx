@@ -6,12 +6,7 @@ import {
   PrismicImageObject
 } from '../interfaces/PrismicInterface'
 import Image from './Image'
-import {
-  secondaryColor,
-  gutter,
-  textColor,
-  textColorWhite
-} from '../utils/variables'
+import { secondaryColor, gutter, textColorSecondary } from '../utils/variables'
 import { media } from '../utils/media'
 import AnimateIns from './AnimateIns'
 
@@ -38,7 +33,7 @@ const Wrapper = styled.div`
   padding: auto 3rem;
   padding-bottom: 6rem;
   background-color: ${secondaryColor};
-  color: ${textColor};
+  color: ${textColorSecondary};
 `
 
 const StackContainer = styled.div`

@@ -5,8 +5,8 @@ import { NavigationIndex } from '../utils/zIndex'
 import {
   primaryColor,
   secondaryColor,
-  textColor,
-  gutter
+  gutter,
+  textColorSecondary
 } from '../utils/variables'
 import { PrismicObject } from '../interfaces/PrismicInterface'
 
@@ -48,7 +48,7 @@ const Nav: any = styled.nav`
     `
     position: fixed;
     background: ${secondaryColor};
-    color: ${primaryColor};
+    color: ${textColorSecondary};
     box-shadow: 0 5px 10px rgba(0,0,0,.2);
   `}
 

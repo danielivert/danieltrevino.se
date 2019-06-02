@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { secondaryColor, textColor } from '../utils/variables'
+import { secondaryColor, textColorSecondary } from '../utils/variables'
 
 const Wrapper = styled.div`
   &:before {
@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   position: relative;
   width: 100%;
   background: ${secondaryColor};
-  color: ${textColor};
+  color: ${textColorSecondary};
 `
 
 const Container = styled.div`

@@ -70,7 +70,7 @@ const Title = styled.div`
     margin-bottom: 1.45rem;
   }
   p {
-    color: #dadada;
+    color: inherit;
     font-size: 1.5rem;
 
     ${media.phone`
