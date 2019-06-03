@@ -6,7 +6,7 @@ export const mobileHeaderHeight = 79
 export const desktopHeaderHeight = 78
 
 // Colors
-export const primaryColor = '#5c6ac4'
+export const primaryColor = '#6549ce'
 export const secondaryColor = '#2b3137'
 export const grayBackground = '#F5F6FA'
 export const textColor = '#0D101B'
