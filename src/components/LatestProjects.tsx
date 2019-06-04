@@ -8,6 +8,7 @@ import Image from './Image'
 import styled from 'styled-components'
 import AnimateIns from './AnimateIns'
 import { gutter, primaryColor } from '../utils/variables'
+import { media } from '../utils/media'
 
 export interface ILatestProjectsPrismic {
   prismicHomepageBodyLatestProjects: {
@@ -111,6 +112,11 @@ const ProjectItemWrapper = styled.div`
   &:hover {
     transform: translateY(0px) scale(1.05) translateZ(0px);
   }
+
+  ${media.phone`
+    margin: 0;
+    margin: 1rem 1rem;
+  `}
 `
 
 const ProjectItem = ({

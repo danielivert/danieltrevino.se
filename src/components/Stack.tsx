@@ -112,7 +112,7 @@ const StackItem = ({
 
   if (url) {
     component = (
-      <a href={url.url} target={url.target}>
+      <a href={url.url} target={url.target} rel="noopener noreferrer">
         <WrapperComponent />
       </a>
     )
