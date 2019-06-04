@@ -17,6 +17,8 @@ const CustomNormalize = styled.div`
     color: inherit;
     text-decoration: none;
   }
+
+  overflow: hidden;
 `
 
 const PageLayout: any = styled.div`
