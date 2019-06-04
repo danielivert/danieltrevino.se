@@ -21,7 +21,8 @@
     {
       "src": "^/(.*).html",
       "headers": { "cache-control": "public,max-age=0,must-revalidate" }
-    }
+    },
+    { "src": "/.*", "status": 404, "dest": "404.html" }
   ],
   "env": {
     "API_KEY": "@prisma-danieltrevino-token",
