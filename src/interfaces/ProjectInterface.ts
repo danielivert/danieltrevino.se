@@ -34,7 +34,7 @@ export interface IProject {
   title: PrismicObject
   image: PrismicImageObject
   description: PrismicObject
-  year: string
+  year?: string
   link?: PrismicLink
   media_button?: PrismicObject
   media?: PrismicLink

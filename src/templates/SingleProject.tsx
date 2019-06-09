@@ -94,7 +94,7 @@ const BodyComponent = styled(Body)`
 const SingleProject = (props: IProps) => {
   const data = props.pageContext
   const title = data.title.text
-  const year = data.year
+  const year = data.year || null
   const descriptionHtml = data.description.html
   const image = data.image
   const siteUrl = data.link || null
@@ -104,9 +104,11 @@ const SingleProject = (props: IProps) => {
       <Wrapper>
         <Hero>
           <Title>{title}</Title>
-          <Year>
-            Year - <span>{format(year, 'YYYY')}</span>
-          </Year>
+          {year && (
+            <Year>
+              Year - <span>{format(year, 'YYYY')}</span>
+            </Year>
+          )}
           {siteUrl && (
             <SiteUrl>
               <a

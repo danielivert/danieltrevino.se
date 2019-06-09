@@ -1,7 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { primaryColor, alternativeColor, gutter } from '../utils/variables'
-import { media } from '../utils/media'
 
 const BodyWrapper = styled.div`
   padding-bottom: 10rem;
@@ -11,10 +10,10 @@ const BodyWrapper = styled.div`
   }
 
   a {
-    color: ${primaryColor};
+    color: ${alternativeColor};
 
     &:hover {
-      color: ${alternativeColor};
+      color: ${primaryColor};
     }
   }
 
@@ -34,8 +33,12 @@ const BodyWrapper = styled.div`
     }
   }
 
-  ul,
   ol {
+    margin-left: 20px;
+  }
+
+  ul {
+    margin: ${gutter * 2}px 0;
     margin-left: 20px;
   }
 `
