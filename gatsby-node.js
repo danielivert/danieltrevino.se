@@ -18,11 +18,11 @@ const createDynamicProjectPages = async (graphql, actions) => {
               text
             }
             image {
+              url
               dimensions {
                 width
                 height
               }
-              url
               alt
             }
             year
@@ -37,6 +37,25 @@ const createDynamicProjectPages = async (graphql, actions) => {
             media {
               url
               target
+            }
+            body {
+              ... on PrismicProjectBodySeo {
+                slice_type
+                primary {
+                  seo_title {
+                    text
+                  }
+                  seo_image {
+                    url
+                  }
+                  seo_description {
+                    text
+                  }
+                  seo_keywords {
+                    text
+                  }
+                }
+              }
             }
           }
         }

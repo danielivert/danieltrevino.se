@@ -2,6 +2,8 @@ import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import { PrismicSEO } from '../interfaces/PrismicInterface'
+import { SEOContext, ISEOContext } from './Layout'
+
 const favicon = require('../../static/favicon.png')
 
 interface IPrismicHomepageBodySEO {
@@ -39,11 +41,22 @@ declare global {
 const GA_ID = process.env.GA_ID
 
 const SEO = () => {
+  const seoContext: ISEOContext = React.useContext(SEOContext)
+
   const result: IPrismicHomepageBodySEO = useStaticQuery(seoQuery)
-  const title = result.prismicHomepageBodySeo.primary.seo_title.text
-  const description = result.prismicHomepageBodySeo.primary.seo_description.text
-  const keywords = result.prismicHomepageBodySeo.primary.seo_keywords.text
-  const ogImage = result.prismicHomepageBodySeo.primary.seo_image.url
+
+  let title = result.prismicHomepageBodySeo.primary.seo_title.text
+  let description = result.prismicHomepageBodySeo.primary.seo_description.text
+  let keywords = result.prismicHomepageBodySeo.primary.seo_keywords.text
+  let ogImage = result.prismicHomepageBodySeo.primary.seo_image.url
+
+  const contextValues = seoContext.values
+  if (contextValues) {
+    title = contextValues.seo_title.text
+    description = contextValues.seo_description.text
+    keywords = contextValues.seo_keywords.text
+    ogImage = contextValues.seo_image.url
+  }
 
   const initGA = () => {
     window.dataLayer = window.dataLayer || []

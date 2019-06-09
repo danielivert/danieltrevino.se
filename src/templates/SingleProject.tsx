@@ -8,6 +8,7 @@ import { media } from '../utils/media'
 import Image from '../components/Image'
 import { gutter, alternativeColor } from '../utils/variables'
 import Contact from '../components/Contact'
+import Slice from '../components/Slice'
 
 interface IProps {
   pageContext: IProject
@@ -98,6 +99,7 @@ const SingleProject = (props: IProps) => {
   const descriptionHtml = data.description.html
   const image = data.image
   const siteUrl = data.link || null
+  const slices = data.body
 
   return (
     <Layout fullWidth={true} secondaryColor primaryColorOnScroll>
@@ -123,6 +125,7 @@ const SingleProject = (props: IProps) => {
           <Img image={image} fallbackAlt={title} />
         </Hero>
         <BodyComponent html={descriptionHtml} />
+        <Slice body={slices} />
       </Wrapper>
       <Contact primaryColor />
     </Layout>

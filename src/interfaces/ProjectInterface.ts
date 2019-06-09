@@ -1,8 +1,10 @@
 import {
   PrismicObject,
   PrismicImageObject,
-  PrismicLink
+  PrismicLink,
+  PrismicSEO
 } from './PrismicInterface'
+import { ISinglePageBody } from '../templates/SinglePage'
 
 export interface ILatestProjectsPrismic {
   prismicHomepageBodyLatestProjects: {
@@ -38,4 +40,5 @@ export interface IProject {
   link?: PrismicLink
   media_button?: PrismicObject
   media?: PrismicLink
+  body: Array<ISinglePageBody | PrismicSEO>
 }

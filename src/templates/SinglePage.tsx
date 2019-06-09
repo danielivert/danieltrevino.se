@@ -7,8 +7,7 @@ import {
   PrismicImageObject
 } from '../interfaces/PrismicInterface'
 import styled from 'styled-components'
-import { normalizeSliceToProjects } from '../utils/projectUtils'
-import ProjectsGrid from '../components/ProjectsGrid'
+import Slice from '../components/Slice'
 
 export interface IProjectSlice {
   projects: {
@@ -56,23 +55,6 @@ const Title = styled.h1`
   font-size: 2rem;
 `
 
-const SliceItem = ({ slices }: any) => {
-  if (!slices) return null
-
-  return slices.map((slice: ISinglePageBody, i: number) => {
-    if (slice.slice_type === 'list_projects') {
-      const projects = normalizeSliceToProjects(slice.items)
-      return <ProjectsGrid key={i} projects={projects} offset={0} />
-    }
-
-    if (slice.slice_type === 'seo') {
-      return null
-    }
-
-    return null
-  })
-}
-
 const SinglePage = (props: IProps) => {
   const result: ISinglePagePrismic = useStaticQuery(singlePageQuery)
   const title = result.prismicPage.data.title.text
@@ -82,7 +64,7 @@ const SinglePage = (props: IProps) => {
     <Layout fullWidth={false} secondaryColor primaryColorOnScroll>
       <Wrapper>
         <Title>{title}</Title>
-        <SliceItem slices={slices} />
+        <Slice body={slices} />
       </Wrapper>
     </Layout>
   )
