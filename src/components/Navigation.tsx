@@ -28,7 +28,7 @@ export interface INavigationPrismic {
 }
 
 const Nav: any = styled.nav`
-  position: relative;
+  position: ${(p: any) => (p.primaryColorOnScroll ? 'fixed' : 'relative')};
   background: ${primaryColor};
   height: 3rem;
   width: 100%;
@@ -45,6 +45,7 @@ const Nav: any = styled.nav`
 
   ${(p: any) =>
     p.scrolled &&
+    !p.primaryColorOnScroll &&
     `
     position: fixed;
     background: ${secondaryColor};
@@ -72,7 +73,11 @@ const Nav: any = styled.nav`
   }
 `
 
-const Navigation = () => {
+const Navigation = ({
+  primaryColorOnScroll = false
+}: {
+  primaryColorOnScroll?: boolean
+}) => {
   const navRef: any = React.useRef<HTMLDivElement>(null)
   const [scrolled, setScrolled] = React.useState(false)
   const [navigationHeight, setNavigationHeight] = React.useState()
@@ -100,7 +105,11 @@ const Navigation = () => {
   }, [navigationHeight])
 
   return (
-    <Nav ref={navRef} scrolled={scrolled}>
+    <Nav
+      ref={navRef}
+      scrolled={scrolled}
+      primaryColorOnScroll={primaryColorOnScroll}
+    >
       <ul>
         {data.nav.map((item: INavigation, i: number) => {
           // Special case for HomePage

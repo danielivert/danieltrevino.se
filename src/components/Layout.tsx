@@ -12,6 +12,7 @@ type Props = {
   hideNavigation?: boolean
   secondaryColor?: boolean
   className?: string
+  primaryColorOnScroll?: boolean
 }
 
 const CustomNormalize = styled.div`
@@ -40,6 +41,7 @@ const Layout = ({
   children,
   hideNavigation = false,
   secondaryColor = false,
+  primaryColorOnScroll,
   className
 }: Props) => {
   return (
@@ -47,7 +49,9 @@ const Layout = ({
       <CustomNormalize>
         <Normalize />
         <SEO />
-        {!hideNavigation && <Navigation />}
+        {!hideNavigation && (
+          <Navigation primaryColorOnScroll={primaryColorOnScroll} />
+        )}
         <PageLayout
           fullWidth={fullWidth}
           className={className}

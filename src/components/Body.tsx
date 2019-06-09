@@ -1,9 +1,11 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { primaryColor, alternativeColor, gutter } from '../utils/variables'
+import { media } from '../utils/media'
 
 const BodyWrapper = styled.div`
   padding-bottom: 10rem;
+
   h2 {
     margin: 2rem 0;
   }

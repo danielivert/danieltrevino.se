@@ -46,6 +46,7 @@ interface IProps {
 }
 
 const Wrapper = styled.div`
+  margin-top: 3rem;
   min-height: calc(100vh - 3rem);
 `
 
@@ -74,7 +75,7 @@ const SinglePage = (props: IProps) => {
   const slices = result.prismicPage.data.body
 
   return (
-    <Layout fullWidth={false} secondaryColor>
+    <Layout fullWidth={false} secondaryColor primaryColorOnScroll>
       <Wrapper>
         <Title>{title}</Title>
         <SliceItem slices={slices} />

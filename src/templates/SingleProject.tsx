@@ -14,6 +14,7 @@ interface IProps {
 }
 
 const Wrapper = styled.div`
+  margin-top: 3rem; /* Navigation height */
   min-height: calc(100vh - 3rem);
   padding: 0 4rem;
 
@@ -73,12 +74,16 @@ const SiteUrl = styled.div`
 const Img = styled(Image)`
   margin: 0 auto;
   object-fit: cover;
-  width: 80%;
   margin-bottom: ${gutter * 2}px;
+  width: 80%;
+
+  ${media.desktop`
+    width: 100%;
+  `}
 `
 
 const BodyComponent = styled(Body)`
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
 
   ${media.desktop`
@@ -95,7 +100,7 @@ const SingleProject = (props: IProps) => {
   const siteUrl = data.link || null
 
   return (
-    <Layout fullWidth={true} secondaryColor>
+    <Layout fullWidth={true} secondaryColor primaryColorOnScroll>
       <Wrapper>
         <Hero>
           <Title>{title}</Title>
