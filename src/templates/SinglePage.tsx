@@ -45,8 +45,14 @@ interface IProps {
   pageContext: IProject
 }
 
+const Wrapper = styled.div`
+  min-height: calc(100vh - 3rem);
+`
+
 const Title = styled.h1`
   margin: 0;
+  padding: 3rem 0;
+  font-size: 2rem;
 `
 
 const SliceItem = ({ slices }: any) => {
@@ -69,8 +75,10 @@ const SinglePage = (props: IProps) => {
 
   return (
     <Layout fullWidth={false} secondaryColor>
-      <Title>{title}</Title>
-      <SliceItem slices={slices} />
+      <Wrapper>
+        <Title>{title}</Title>
+        <SliceItem slices={slices} />
+      </Wrapper>
     </Layout>
   )
 }
