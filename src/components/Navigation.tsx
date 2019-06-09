@@ -72,30 +72,6 @@ const Nav: any = styled.nav`
   }
 `
 
-export const navigationQuery = graphql`
-  query Navigation {
-    prismicNavigation {
-      data {
-        display_name {
-          html
-          text
-        }
-        nav {
-          primary {
-            label {
-              html
-              text
-            }
-            link {
-              uid
-            }
-          }
-        }
-      }
-    }
-  }
-`
-
 const Navigation = () => {
   const navRef: any = React.useRef<HTMLDivElement>(null)
   const [scrolled, setScrolled] = React.useState(false)
@@ -143,3 +119,27 @@ const Navigation = () => {
 }
 
 export default Navigation
+
+export const navigationQuery = graphql`
+  query Navigation {
+    prismicNavigation {
+      data {
+        display_name {
+          html
+          text
+        }
+        nav {
+          primary {
+            label {
+              html
+              text
+            }
+            link {
+              uid
+            }
+          }
+        }
+      }
+    }
+  }
+`

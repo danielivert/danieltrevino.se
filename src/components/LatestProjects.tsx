@@ -1,39 +1,13 @@
 import * as React from 'react'
-import { useStaticQuery, graphql, Link } from 'gatsby'
-import {
-  PrismicObject,
-  PrismicImageObject
-} from '../interfaces/PrismicInterface'
-import Image from './Image'
+import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import AnimateIns from './AnimateIns'
 import { gutter, primaryColor } from '../utils/variables'
-import { media } from '../utils/media'
-
-export interface ILatestProjectsPrismic {
-  prismicHomepageBodyLatestProjects: {
-    slice_type: string
-    primary: {
-      project_section_title: PrismicObject
-    }
-    items: Array<ILatestPoject>
-  }
-}
-
-interface ILatestPoject {
-  latest_projects1: {
-    uid: string
-    document: [
-      {
-        data: {
-          title: PrismicObject
-          image: PrismicImageObject
-          description: PrismicObject
-        }
-      }
-    ]
-  }
-}
+import {
+  ILatestProjectsPrismic,
+  IProject
+} from '../interfaces/ProjectInterface'
+import { normalizeProjects } from '../utils/projectUtils'
+import ProjectsGrid from './ProjectsGrid'
 
 const Wrapper = styled.div`
   &:before {
@@ -69,99 +43,20 @@ const ProjectsContainer = styled.div`
   margin: 0 auto;
 `
 
-const ProjectsGrid = styled(AnimateIns)`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-`
-
-const Img = styled(Image)`
-  margin: 0 auto;
-  object-fit: cover;
-
-  img {
-    height: 100%;
-    max-height: 350px;
-    width: 100%;
-  }
-`
-
-const ProjectItemWrapper = styled.div`
-  position: relative;
-  text-align: center;
-  transition: 0.3s ease;
-
-  margin-right: ${gutter * 2}px;
-  margin-top: ${gutter * 2}px;
-
-  a {
-    cursor: pointer;
-  }
-
-  h4 {
-    margin: 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: left;
-    background-color: black;
-    opacity: 0.8;
-    padding: 1rem;
-  }
-
-  &:hover {
-    transform: translateY(0px) scale(1.05) translateZ(0px);
-  }
-
-  ${media.phone`
-    margin: 0;
-    margin: 1rem 1rem;
-  `}
-`
-
-const ProjectItem = ({
-  title,
-  image,
-  url
-}: {
-  title: string
-  image: PrismicImageObject
-  url: string
-}) => {
-  return (
-    <Link to={url}>
-      <ProjectItemWrapper>
-        <h4>{title}</h4>
-        <Img fallbackAlt={title} image={image} />
-      </ProjectItemWrapper>
-    </Link>
-  )
-}
-
 const LatestProjects = () => {
   const result: ILatestProjectsPrismic = useStaticQuery(latestProjectsQuery)
   const title =
     result.prismicHomepageBodyLatestProjects.primary.project_section_title.text
-  const projects: Array<ILatestPoject> =
+  const projects: Array<IProject> = normalizeProjects(
     result.prismicHomepageBodyLatestProjects.items
+  )
 
   return (
     <Wrapper>
       <Title>{title}</Title>
 
       <ProjectsContainer>
-        <ProjectsGrid delay={200}>
-          {projects.map((itemData: ILatestPoject, i: any) => {
-            const uid = itemData.latest_projects1.uid
-            const url = `/projects/${uid}`
-            const data = itemData.latest_projects1.document[0].data
-            const title = data.title.text
-
-            return (
-              <ProjectItem key={i} title={title} image={data.image} url={url} />
-            )
-          })}
-        </ProjectsGrid>
+        <ProjectsGrid projects={projects} />
       </ProjectsContainer>
     </Wrapper>
   )

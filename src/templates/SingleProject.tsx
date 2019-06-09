@@ -7,7 +7,6 @@ interface IProps {
 }
 
 const SingleProject = (props: IProps) => {
-  console.log(props)
   const data = props.pageContext
   const titleHtml = data.title.html
   const descriptionHtml = data.description.html
@@ -16,7 +15,7 @@ const SingleProject = (props: IProps) => {
     return { __html: `${titleHtml} ${descriptionHtml}` }
   }
   return (
-    <Layout fullWidth={false}>
+    <Layout fullWidth={false} secondaryColor>
       <div dangerouslySetInnerHTML={generateMarkup()} />
     </Layout>
   )

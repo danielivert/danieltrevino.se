@@ -4,11 +4,13 @@ import Navigation from './Navigation'
 import { Normalize } from 'styled-normalize'
 import styled from 'styled-components'
 import { media } from '../utils/media'
+import { secondaryColor } from '../utils/variables'
 
 type Props = {
   fullWidth?: boolean
   children: React.ReactNode
   hideNavigation?: boolean
+  secondaryColor?: boolean
   className?: string
 }
 
@@ -23,7 +25,9 @@ const CustomNormalize = styled.div`
 
 const PageLayout: any = styled.div`
   width: 100%;
-
+  background: ${(p: any) =>
+    p.secondaryColor ? `${secondaryColor}` : '#FFFFFF'};
+  color: #ffffff;
   padding: ${(p: any) => !p.fullWidth && '0 4rem'};
 
   ${media.tablet`
@@ -35,6 +39,7 @@ const Layout = ({
   fullWidth = true,
   children,
   hideNavigation = false,
+  secondaryColor = false,
   className
 }: Props) => {
   return (
@@ -43,7 +48,11 @@ const Layout = ({
         <Normalize />
         <SEO />
         {!hideNavigation && <Navigation />}
-        <PageLayout fullWidth={fullWidth} className={className}>
+        <PageLayout
+          fullWidth={fullWidth}
+          className={className}
+          secondaryColor={secondaryColor}
+        >
           {children}
         </PageLayout>
       </CustomNormalize>

@@ -3,10 +3,13 @@ import { useRef, useEffect, useState } from 'react'
 import styled from 'styled-components'
 const scrollMonitor = require('scrollmonitor')
 
-interface IProps {
-  delay: number
-  children: React.ReactNode
+export interface IPropsAnimateIns {
+  delay?: number
   offset?: number
+}
+
+interface IProps extends IPropsAnimateIns {
+  children: React.ReactNode
 }
 
 const Wrapper: any = styled.div``
@@ -17,7 +20,7 @@ const Part: any = styled.div`
 `
 
 const AnimateIns = (props: IProps) => {
-  const { delay, children, offset = 200 } = props
+  const { delay = 200, children, offset = 200 } = props
   const container = useRef()
   const [show, setShow] = useState(false)
 
