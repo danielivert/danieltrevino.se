@@ -1,7 +1,11 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import { secondaryColor, textColorSecondary } from '../utils/variables'
+import {
+  primaryColor,
+  secondaryColor,
+  textColorSecondary
+} from '../utils/variables'
 import {
   PrismicObject,
   PrismicImageObject
@@ -44,7 +48,7 @@ const Img = styled(Image)`
   }
 `
 
-const Wrapper = styled.div`
+const Wrapper: any = styled.div`
   &:before {
     position: absolute;
     z-index: 0;
@@ -57,12 +61,14 @@ const Wrapper = styled.div`
     -ms-transform: rotate(-2deg);
     transform: rotate(-2deg);
     content: '';
-    background: ${secondaryColor};
+    background: ${(p: any) =>
+      p.primaryColor ? `${primaryColor}` : `${secondaryColor}`};
   }
 
   position: relative;
   width: 100%;
-  background: ${secondaryColor};
+  background: ${(p: any) =>
+    p.primaryColor ? `${primaryColor}` : `${secondaryColor}`};
   color: ${textColorSecondary};
   height: 80vh;
   display: flex;
@@ -125,7 +131,7 @@ const SocialMediaItem = ({
   )
 }
 
-const Contact = () => {
+const Contact = ({ primaryColor = false }: { primaryColor?: boolean }) => {
   const result: IContactPrismic = useStaticQuery(contactQuery)
   const title =
     result.prismicHomepageBodyContactSection.primary.contact_title.text
@@ -134,7 +140,7 @@ const Contact = () => {
     result.prismicHomepageBodyContactSection.items
 
   return (
-    <Wrapper>
+    <Wrapper primaryColor={primaryColor}>
       <Container>
         <Title>{title}</Title>
         <Email href={`mailto:${email}`}>{email}</Email>

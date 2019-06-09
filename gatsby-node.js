@@ -17,6 +17,27 @@ const createDynamicProjectPages = async (graphql, actions) => {
               html
               text
             }
+            image {
+              dimensions {
+                width
+                height
+              }
+              url
+              alt
+            }
+            year
+            link {
+              url
+              target
+            }
+            media_button {
+              text
+              html
+            }
+            media {
+              url
+              target
+            }
           }
         }
       }

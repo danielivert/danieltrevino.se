@@ -1,4 +1,8 @@
-import { PrismicObject, PrismicImageObject } from './PrismicInterface'
+import {
+  PrismicObject,
+  PrismicImageObject,
+  PrismicLink
+} from './PrismicInterface'
 
 export interface ILatestProjectsPrismic {
   prismicHomepageBodyLatestProjects: {
@@ -30,4 +34,8 @@ export interface IProject {
   title: PrismicObject
   image: PrismicImageObject
   description: PrismicObject
+  year: string
+  link?: PrismicLink
+  media_button?: PrismicObject
+  media?: PrismicLink
 }

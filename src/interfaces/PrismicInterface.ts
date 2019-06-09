@@ -13,6 +13,11 @@ export interface PrismicObject {
   }
 }
 
+export interface PrismicLink {
+  url: string
+  target: '_blank' | '_self' | '_parent' | '_top'
+}
+
 export interface PrismicImageObject {
   alt: string
   localfile: {
