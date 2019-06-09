@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "danieltrevino.se",
+  "alias": "beta.danieltrevino.se",
   "regions": ["arn1"],
   "builds": [
     {
