@@ -1,25 +1,30 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import { PrismicSEO } from '../interfaces/PrismicInterface'
 const favicon = require('../../static/favicon.png')
 
-interface ISEO {
-  site: {
-    siteMetadata: {
-      title: string
-      description: string
-      keywords: string
-    }
-  }
+interface IPrismicHomepageBodySEO {
+  prismicHomepageBodySeo: PrismicSEO
 }
 
 export const seoQuery = graphql`
-  query SEOQuery {
-    site {
-      siteMetadata {
-        title
-        description
-        keywords
+  query HomepageSEO {
+    prismicHomepageBodySeo {
+      slice_type
+      primary {
+        seo_title {
+          text
+        }
+        seo_image {
+          url
+        }
+        seo_description {
+          text
+        }
+        seo_keywords {
+          text
+        }
       }
     }
   }
@@ -34,9 +39,11 @@ declare global {
 const GA_ID = process.env.GA_ID
 
 const SEO = () => {
-  const result: ISEO = useStaticQuery(seoQuery)
-
-  const { title, description, keywords } = result.site.siteMetadata
+  const result: IPrismicHomepageBodySEO = useStaticQuery(seoQuery)
+  const title = result.prismicHomepageBodySeo.primary.seo_title.text
+  const description = result.prismicHomepageBodySeo.primary.seo_description.text
+  const keywords = result.prismicHomepageBodySeo.primary.seo_keywords.text
+  const ogImage = result.prismicHomepageBodySeo.primary.seo_image.url
 
   const initGA = () => {
     window.dataLayer = window.dataLayer || []
@@ -57,8 +64,8 @@ const SEO = () => {
       title={title}
       meta={[
         { name: 'description', content: description },
-        { name: 'keywords', content: keywords }
-        // { name: 'image', content: ogImage }
+        { name: 'keywords', content: keywords },
+        { name: 'image', content: ogImage }
       ]}
     >
       <html lang="en" />
@@ -71,9 +78,9 @@ const SEO = () => {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:creator" content="@danielivert" />
-      {/* <meta name="twitter:image" content={ogImage} /> */}
+      <meta name="twitter:image" content={ogImage} />
       <meta name="description" content={description} />§
-      {/* <meta property="og:image" content={ogImage} /> */}
+      <meta property="og:image" content={ogImage} />
       <meta property="og:description" content={description} />
       <meta property="og:site_name" content={title} />
       <script

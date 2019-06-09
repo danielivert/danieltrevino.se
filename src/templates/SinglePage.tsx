@@ -59,10 +59,14 @@ const Title = styled.h1`
 const SliceItem = ({ slices }: any) => {
   if (!slices) return null
 
-  return slices.map((slice: ISinglePageBody) => {
+  return slices.map((slice: ISinglePageBody, i: number) => {
     if (slice.slice_type === 'list_projects') {
       const projects = normalizeSliceToProjects(slice.items)
-      return <ProjectsGrid projects={projects} offset={0} />
+      return <ProjectsGrid key={i} projects={projects} offset={0} />
+    }
+
+    if (slice.slice_type === 'seo') {
+      return null
     }
 
     return null
@@ -111,28 +115,46 @@ export const singlePageQuery = graphql`
           alt
         }
         body {
-          slice_type
-          items {
-            projects {
-              uid
-              document {
-                data {
-                  title {
-                    text
-                    html
-                  }
-                  image {
-                    localFile {
-                      childImageSharp {
-                        fluid(maxWidth: 450, quality: 100) {
-                          ...GatsbyImageSharpFluid_withWebp
+          ... on PrismicPageBodyListProjects {
+            slice_type
+            items {
+              projects {
+                uid
+                document {
+                  data {
+                    title {
+                      text
+                    }
+                    image {
+                      localFile {
+                        childImageSharp {
+                          fluid(maxWidth: 450, quality: 100) {
+                            ...GatsbyImageSharpFluid_withWebp
+                          }
                         }
                       }
+                      url
+                      alt
                     }
-                    url
-                    alt
                   }
                 }
+              }
+            }
+          }
+          ... on PrismicPageBodySeo {
+            slice_type
+            primary {
+              seo_title {
+                text
+              }
+              seo_image {
+                url
+              }
+              seo_description {
+                text
+              }
+              seo_keywords {
+                text
               }
             }
           }

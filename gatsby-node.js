@@ -90,6 +90,23 @@ const createDynamicPages = async (graphql, actions) => {
                   }
                 }
               }
+              ... on PrismicPageBodySeo {
+                slice_type
+                primary {
+                  seo_title {
+                    text
+                  }
+                  seo_image {
+                    url
+                  }
+                  seo_description {
+                    text
+                  }
+                  seo_keywords {
+                    text
+                  }
+                }
+              }
             }
           }
         }
