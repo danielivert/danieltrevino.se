@@ -9,9 +9,12 @@ import Image from '../components/Image'
 import { gutter, alternativeColor } from '../utils/variables'
 import Contact from '../components/Contact'
 import Slice from '../components/Slice'
+import { graphql, useStaticQuery } from 'gatsby'
 
 interface IProps {
-  pageContext: IProject
+  pageContext: {
+    id: string
+  }
 }
 
 const Wrapper = styled.div`
@@ -93,7 +96,12 @@ const BodyComponent = styled(Body)`
 `
 
 const SingleProject = (props: IProps) => {
-  const data = props.pageContext
+  const result: any = useStaticQuery(allPrismicProjectsQuery)
+  const project = result.allPrismicProject.nodes.find(
+    (project: any) => project.id === props.pageContext.id
+  )
+
+  const data = project.data
   const title = data.title.text
   const year = data.year || null
   const descriptionHtml = data.description.html
@@ -122,7 +130,7 @@ const SingleProject = (props: IProps) => {
               </a>
             </SiteUrl>
           )}
-          <Img image={image} fallbackAlt={title} />
+          <Img image={image} fallbackAlt={title} blur />
         </Hero>
         <BodyComponent html={descriptionHtml} />
         <Slice body={slices} />
@@ -133,3 +141,67 @@ const SingleProject = (props: IProps) => {
 }
 
 export default SingleProject
+
+export const allPrismicProjectsQuery = graphql`
+  query AllPrismicProjects {
+    allPrismicProject {
+      nodes {
+        id
+        uid
+        data {
+          title {
+            html
+            text
+          }
+          description {
+            html
+            text
+          }
+          image {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 450, quality: 100) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+            url
+            alt
+          }
+          year
+          link {
+            url
+            target
+          }
+          media_button {
+            text
+            html
+          }
+          media {
+            url
+            target
+          }
+          body {
+            ... on PrismicProjectBodySeo {
+              slice_type
+              primary {
+                seo_title {
+                  text
+                }
+                seo_image {
+                  url
+                }
+                seo_description {
+                  text
+                }
+                seo_keywords {
+                  text
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

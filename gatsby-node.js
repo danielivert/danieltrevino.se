@@ -7,57 +7,8 @@ const createDynamicProjectPages = async (graphql, actions) => {
     {
       allPrismicProject {
         nodes {
+          id
           uid
-          data {
-            title {
-              html
-              text
-            }
-            description {
-              html
-              text
-            }
-            image {
-              url
-              dimensions {
-                width
-                height
-              }
-              alt
-            }
-            year
-            link {
-              url
-              target
-            }
-            media_button {
-              text
-              html
-            }
-            media {
-              url
-              target
-            }
-            body {
-              ... on PrismicProjectBodySeo {
-                slice_type
-                primary {
-                  seo_title {
-                    text
-                  }
-                  seo_image {
-                    url
-                  }
-                  seo_description {
-                    text
-                  }
-                  seo_keywords {
-                    text
-                  }
-                }
-              }
-            }
-          }
         }
       }
     }
@@ -67,11 +18,13 @@ const createDynamicProjectPages = async (graphql, actions) => {
 
   projects.data.allPrismicProject.nodes.forEach(project => {
     const uid = project.uid
-    const data = project.data
+    const id = project.id
     createPage({
       path: `projects/${uid}`,
       component: templateProject,
-      context: data
+      context: {
+        id
+      }
     })
   })
 }

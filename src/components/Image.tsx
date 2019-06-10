@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Img from 'gatsby-image'
 import styled from 'styled-components'
 import get from 'lodash/get'
 import { supportsWebp } from '../utils/imageUtils'
@@ -17,9 +18,17 @@ interface IProps {
   className?: string
   critical?: any
   fallbackAlt: string
+  blur?: boolean
 }
 
-const Image = ({ onLoad, image, className, critical, fallbackAlt }: IProps) => {
+const Image = ({
+  onLoad,
+  image,
+  className,
+  critical,
+  fallbackAlt,
+  blur = false
+}: IProps) => {
   const [src, setImgSrc] = useState()
 
   const loadImage = async () => {
@@ -39,12 +48,33 @@ const Image = ({ onLoad, image, className, critical, fallbackAlt }: IProps) => {
   if (!image || Object.values(image).filter(Boolean).length === 0) {
     return null
   }
+
   const { alt, url } = image
 
   if (!image.localFile) {
     return (
       <Wrapper className={className}>
         <img alt={alt || fallbackAlt} onLoad={url && onLoad} src={url} />
+      </Wrapper>
+    )
+  }
+
+  const imageExists = image.localFile.childImageSharp
+
+  if (blur && !imageExists) {
+    console.warn(
+      'The blur effect will not work if there is an empty childImageSharp object'
+    )
+  }
+
+  if (blur && image.localFile && imageExists) {
+    return (
+      <Wrapper className={className}>
+        <Img
+          alt={alt || fallbackAlt}
+          onLoad={url && onLoad}
+          fluid={image.localFile.childImageSharp.fluid}
+        />
       </Wrapper>
     )
   }

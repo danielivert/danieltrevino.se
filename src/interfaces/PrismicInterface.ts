@@ -20,7 +20,7 @@ export interface PrismicLink {
 
 export interface PrismicImageObject {
   alt: string
-  localfile: {
+  localFile: {
     childImageSharp: any
   }
   url: string
