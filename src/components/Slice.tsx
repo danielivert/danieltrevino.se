@@ -1,11 +1,9 @@
 import * as React from 'react'
 import { normalizeSliceToProjects } from '../utils/projectUtils'
 import ProjectsGrid from './ProjectsGrid'
-import { ISEOContext, SEOContext } from './Layout'
+import SEO from './SEO'
 
 const Slice = ({ body }: any) => {
-  const seoContext: ISEOContext = React.useContext(SEOContext)
-
   if (!body) return null
 
   return body.map((slice: any, i: number) => {
@@ -15,8 +13,8 @@ const Slice = ({ body }: any) => {
     }
 
     if (slice.slice_type === 'seo') {
-      seoContext.setValues(slice.primary)
-      return null
+      // seoContext.setValues(slice.primary)
+      return <SEO key={i} {...slice.primary} />
     }
 
     return null

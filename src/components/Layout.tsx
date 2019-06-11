@@ -5,10 +5,6 @@ import { Normalize } from 'styled-normalize'
 import styled from 'styled-components'
 import { media } from '../utils/media'
 import { secondaryColor } from '../utils/variables'
-import {
-  PrismicObject,
-  PrismicImageObject
-} from '../interfaces/PrismicInterface'
 
 type Props = {
   fullWidth?: boolean
@@ -40,18 +36,6 @@ const PageLayout: any = styled.div`
   `};
 `
 
-export interface ISEOContext {
-  values: {
-    seo_description: PrismicObject
-    seo_image: PrismicImageObject
-    seo_keywords: PrismicObject
-    seo_title: PrismicObject
-  } | null
-  setValues: Function
-}
-
-export const SEOContext: any = React.createContext(null)
-
 const Layout = ({
   fullWidth = true,
   children,
@@ -60,30 +44,21 @@ const Layout = ({
   primaryColorOnScroll,
   className
 }: Props) => {
-  const [values, setValues] = React.useState(null)
-  const initContext: ISEOContext = {
-    values,
-    setValues
-  }
-
   return (
     <React.Fragment>
-      <SEOContext.Provider value={initContext}>
-        <CustomNormalize>
-          <Normalize />
-          <SEO />
-          {!hideNavigation && (
-            <Navigation primaryColorOnScroll={primaryColorOnScroll} />
-          )}
-          <PageLayout
-            fullWidth={fullWidth}
-            className={className}
-            secondaryColor={secondaryColor}
-          >
-            {children}
-          </PageLayout>
-        </CustomNormalize>
-      </SEOContext.Provider>
+      <CustomNormalize>
+        <Normalize />
+        {!hideNavigation && (
+          <Navigation primaryColorOnScroll={primaryColorOnScroll} />
+        )}
+        <PageLayout
+          fullWidth={fullWidth}
+          className={className}
+          secondaryColor={secondaryColor}
+        >
+          {children}
+        </PageLayout>
+      </CustomNormalize>
     </React.Fragment>
   )
 }

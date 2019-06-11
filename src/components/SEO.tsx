@@ -1,36 +1,8 @@
 import * as React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import { PrismicSEO } from '../interfaces/PrismicInterface'
-import { SEOContext, ISEOContext } from './Layout'
-
+import get from 'lodash/get'
+import { ISEO } from '../interfaces/PrismicInterface'
 const favicon = require('../../static/favicon.png')
-
-interface IPrismicHomepageBodySEO {
-  prismicHomepageBodySeo: PrismicSEO
-}
-
-export const seoQuery = graphql`
-  query HomepageSEO {
-    prismicHomepageBodySeo {
-      slice_type
-      primary {
-        seo_title {
-          text
-        }
-        seo_image {
-          url
-        }
-        seo_description {
-          text
-        }
-        seo_keywords {
-          text
-        }
-      }
-    }
-  }
-`
 
 declare global {
   interface Window {
@@ -40,23 +12,11 @@ declare global {
 
 const GA_ID = process.env.GA_ID
 
-const SEO = () => {
-  const seoContext: ISEOContext = React.useContext(SEOContext)
-
-  const result: IPrismicHomepageBodySEO = useStaticQuery(seoQuery)
-
-  let title = result.prismicHomepageBodySeo.primary.seo_title.text
-  let description = result.prismicHomepageBodySeo.primary.seo_description.text
-  let keywords = result.prismicHomepageBodySeo.primary.seo_keywords.text
-  let ogImage = result.prismicHomepageBodySeo.primary.seo_image.url
-
-  const contextValues = seoContext.values
-  if (contextValues) {
-    title = contextValues.seo_title.text
-    description = contextValues.seo_description.text
-    keywords = contextValues.seo_keywords.text
-    ogImage = contextValues.seo_image.url
-  }
+const SEO = ({ seo_title, seo_description, seo_keywords, seo_image }: ISEO) => {
+  const title = get(seo_title, 'text', 'Daniel Treviño')
+  const description = get(seo_description, 'text', 'Fullstack Web developer')
+  const keywords = get(seo_keywords, 'text', '')
+  const ogImage = get(seo_image, 'url', '')
 
   const initGA = () => {
     window.dataLayer = window.dataLayer || []

@@ -26,12 +26,13 @@ export interface PrismicImageObject {
   url: string
 }
 
+export interface ISEO {
+  seo_description: PrismicObject
+  seo_image: PrismicImageObject
+  seo_keywords: PrismicObject
+  seo_title: PrismicObject
+}
 export interface PrismicSEO {
   slice_type: 'seo'
-  primary: {
-    seo_description: PrismicObject
-    seo_image: PrismicImageObject
-    seo_keywords: PrismicObject
-    seo_title: PrismicObject
-  }
+  primary: ISEO
 }
