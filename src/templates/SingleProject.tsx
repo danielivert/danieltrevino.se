@@ -160,7 +160,7 @@ export const allPrismicProjectsQuery = graphql`
           image {
             localFile {
               childImageSharp {
-                fluid(maxWidth: 450, quality: 100) {
+                fluid(maxWidth: 1500, quality: 100) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
