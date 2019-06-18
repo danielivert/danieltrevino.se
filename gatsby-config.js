@@ -10,7 +10,7 @@ const path = require('path')
 
 let activeEnv =
   process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || 'development'
-const GA_ID = process.env.GA_ID
+const GA_ID = 'UA-83814700-1'
 
 console.log(`Using environment config: '${activeEnv}'`)
 
