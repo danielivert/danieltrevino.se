@@ -10,9 +10,13 @@ declare global {
   }
 }
 
-const GA_ID = process.env.GA_ID
-
-const SEO = ({ seo_title, seo_description, seo_keywords, seo_image }: ISEO) => {
+const SEO = ({
+  seo_title,
+  seo_description,
+  seo_keywords,
+  seo_image,
+  GA_ID
+}: ISEO) => {
   const title = get(seo_title, 'text', 'Daniel Treviño')
   const description = get(seo_description, 'text', 'Fullstack Web developer')
   const keywords = get(seo_keywords, 'text', '')

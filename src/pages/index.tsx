@@ -10,6 +10,11 @@ import { PrismicSEO } from '../interfaces/PrismicInterface'
 import SEO from '../components/SEO'
 
 interface IPrismicHomepageBodySEO {
+  site: {
+    siteMetadata: {
+      GA_ID: string
+    }
+  }
   prismicHomepageBodySeo: PrismicSEO
 }
 
@@ -23,7 +28,10 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO {...seoValues.prismicHomepageBodySeo.primary} />
+      <SEO
+        {...seoValues.prismicHomepageBodySeo.primary}
+        {...seoValues.site.siteMetadata}
+      />
       <Wrapper>
         <Hero />
         <Stack />
@@ -38,6 +46,11 @@ export default IndexPage
 
 export const seoQuery = graphql`
   query HomepageSEO {
+    site {
+      siteMetadata {
+        GA_ID
+      }
+    }
     prismicHomepageBodySeo {
       slice_type
       primary {

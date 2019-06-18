@@ -27,6 +27,7 @@ export interface PrismicImageObject {
 }
 
 export interface ISEO {
+  GA_ID: string
   seo_description: PrismicObject
   seo_image: PrismicImageObject
   seo_keywords: PrismicObject

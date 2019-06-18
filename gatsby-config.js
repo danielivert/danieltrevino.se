@@ -4,23 +4,23 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+require('dotenv').config()
+
 const path = require('path')
 
 let activeEnv =
   process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || 'development'
+const GA_ID = process.env.GA_ID
 
 console.log(`Using environment config: '${activeEnv}'`)
-
-require('dotenv').config({
-  path: `.env.${activeEnv}`
-})
 
 module.exports = {
   siteMetadata: {
     title: 'Daniel Treviño',
     description:
       'Hello, I am Daniel Treviño. Fullstack Web Developer. Based in Stockholm, Sweden.',
-    keywords: 'developer, stockholm, fullstack, react, frontend, backend, node'
+    keywords: 'developer, stockholm, fullstack, react, frontend, backend, node',
+    GA_ID
   },
   plugins: [
     {
