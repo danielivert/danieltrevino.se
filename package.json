@@ -16,7 +16,7 @@
     "@types/date-fns": "^2.6.0",
     "@types/lodash": "^4.14.132",
     "@types/react-helmet": "^5.0.8",
-    "@types/styled-components": "^4.1.15",
+    "@types/styled-components": "^4.1.18",
     "@types/typescript": "^2.0.0",
     "@types/typography": "^0.16.2",
     "date-fns": "^1.30.1",
