@@ -740,6 +740,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.5.5":
+  version "7.5.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.5.5.tgz#74fba56d35efbeca444091c7850ccd494fd2f132"
+  integrity sha512-28QvEGyQyNkB0/m2B4FU7IEZGK2NUrcMtT6BZEFALTguLk+AUT6ofsHtPk5QyjAdUkpMJ+/Em+quwz4HOt30AQ==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/template@^7.1.0", "@babel/template@^7.4.4":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.4.4.tgz#f4b88d1225689a08f5bc3a17483545be9e4ed237"
@@ -880,6 +887,13 @@
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@types/configstore/-/configstore-2.1.1.tgz#cd1e8553633ad3185c3f2f239ecff5d2643e92b6"
   integrity sha1-zR6FU2M60xhcPy8jns/10mQ+krY=
+
+"@types/date-fns@^2.6.0":
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/@types/date-fns/-/date-fns-2.6.0.tgz#b062ca46562002909be0c63a6467ed173136acc1"
+  integrity sha1-sGLKRlYgApCb4MY6ZGftFzE2rME=
+  dependencies:
+    date-fns "*"
 
 "@types/debug@^0.0.29":
   version "0.0.29"
@@ -3248,6 +3262,16 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
+date-fns@*:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.0.1.tgz#c5f30e31d3294918e6b6a82753a4e719120e203d"
+  integrity sha512-C14oTzTZy8DH1Eq8N78owrCWvf3+cnJw88BTK/N3DYWVxDJuJzPaNdplzYxDYuuXXGvqBcO4Vy5SOrwAooXSWw==
+
+date-fns@^1.30.1:
+  version "1.30.1"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
+  integrity sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==
+
 date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
@@ -4957,6 +4981,13 @@ gatsby-plugin-page-creator@^2.0.13:
     micromatch "^3.1.10"
     slash "^1.0.0"
 
+gatsby-plugin-react-helmet@^3.0.12:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-3.1.5.tgz#009eebab0797880457bc3ba464a6e5e8a056d67a"
+  integrity sha512-ApDQjtqfW0rzYpem9NHwff8lWZlDKLeuyMaaP1QKoLkiGJkussJ7n1X5BJJ4lK32g6rDb3aZ+zik08ohtG7QgQ==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+
 gatsby-plugin-robots-txt@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-robots-txt/-/gatsby-plugin-robots-txt-1.4.0.tgz#2da3fb60a307f83b34a9fbdd85fdb4e6a53e431a"
@@ -4986,6 +5017,13 @@ gatsby-plugin-sharp@^2.1.1:
     semver "^5.6.0"
     sharp "^0.22.1"
     svgo "^1.2.0"
+
+gatsby-plugin-styled-components@^3.0.7:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-3.1.3.tgz#b97d8810c0ca1462d55eed5ba4f97750d5d1f166"
+  integrity sha512-631vcDQE8lnqeySX/uEdnfxGiintos9mxoKV9T0zZsphyYC/GcK6PTObClRTpGtNmg9i4+qRSb8qUJuVDpb/9Q==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
 
 gatsby-plugin-typescript@^2.0.15:
   version "2.0.15"
@@ -9152,13 +9190,14 @@ prismic-javascript@^1.1.5:
     cross-fetch "^2.2.0"
     promise-polyfill "8.0.0"
 
-prismic-reactjs@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/prismic-reactjs/-/prismic-reactjs-0.3.2.tgz#deebb1a14772e3194c097ddc540e02afa01ac789"
-  integrity sha512-4nPNWGuYdwVd++Xbe9h0mqauDh55IpprI8BBAj3M24UkgqVZScylMireNvyr3O7qV3uPx/LW0Eba8YYMsJltUw==
+prismic-reactjs@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/prismic-reactjs/-/prismic-reactjs-1.1.0.tgz#e3dbff1287434399d773597be5b80d724a98f23a"
+  integrity sha512-YaO7LumByUB/Evd8PR0mlLhBE0gB+YuEG6bZjHBWX8AvxIE5w1qpxBgB6W3DMLmA4AMB3jI46qNEbHZaevkHwQ==
   dependencies:
     prismic-helpers "^1.0.0"
-    prismic-richtext "^0.4.2"
+    prismic-richtext "^1.0.3"
+    prop-types "^15.7.2"
 
 prismic-richtext@^0.4.2:
   version "0.4.2"
@@ -9167,6 +9206,14 @@ prismic-richtext@^0.4.2:
   dependencies:
     ramda "^0.25.0"
     uuid "^3.1.0"
+
+prismic-richtext@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/prismic-richtext/-/prismic-richtext-1.0.3.tgz#ce8c8c18d65b01f1036f222b993ad2de700199fe"
+  integrity sha512-ZM45dVPL713+oDpt8ysWRY2pw3esBxRrqBlUO+q/T0WK0SNVSq29tQYhVdIALd8hRfF7X1lfpW0Q0YymEdh0AA==
+  dependencies:
+    ramda "^0.26.1"
+    uuid "^3.3.2"
 
 private@^0.1.6:
   version "0.1.8"
