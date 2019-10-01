@@ -16,6 +16,7 @@ console.log(`Using environment config: '${activeEnv}'`)
 
 module.exports = {
   siteMetadata: {
+    siteUrl: 'https://danieltrevino.se',
     title: 'Daniel Treviño',
     description:
       'Hello, I am Daniel Treviño. Fullstack Web Developer. Based in Stockholm, Sweden.',
