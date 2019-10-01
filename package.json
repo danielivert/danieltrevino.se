@@ -36,7 +36,7 @@
     "gatsby-source-prismic": "^2.3.0-alpha.3",
     "gatsby-transformer-sharp": "^2.1.19",
     "lodash": "^4.17.11",
-    "prismic-reactjs": "^0.3.2",
+    "prismic-reactjs": "^1.1.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
