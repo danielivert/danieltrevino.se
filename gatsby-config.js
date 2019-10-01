@@ -28,27 +28,7 @@ module.exports = {
       options: {
         host: 'https://danieltrevino.se',
         sitemap: 'https://danieltrevino.se/sitemap.xml',
-        resolveEnv: () => activeEnv,
-        env: {
-          production: {
-            policy: [{ userAgent: '*' }]
-          },
-          development: {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
-            sitemap: null,
-            host: null
-          },
-          'branch-deploy': {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
-            sitemap: null,
-            host: null
-          },
-          'deploy-preview': {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
-            sitemap: null,
-            host: null
-          }
-        }
+        policy: [{ userAgent: '*', disallow: ['/.netlify/'] }]
       }
     },
     {
@@ -72,6 +52,19 @@ module.exports = {
         linkResolver: ({ node, key, value }) => post => `/${post.uid}`
       }
     },
+    {
+      resolve: 'gatsby-plugin-netlify',
+      options: {
+        headers: {
+          '/sw.js': ['Cache-Control: public, no-cache'],
+          '*.js': ['Cache-Control: public, max-age=31449600'],
+          '*.css': ['Cache-Control: public, max-age=31449600'],
+          '*.woff2': ['Cache-Control: public, max-age=31449600'],
+          '*.woff': ['Cache-Control: public, max-age=31449600']
+        }
+      }
+    },
+    'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',
