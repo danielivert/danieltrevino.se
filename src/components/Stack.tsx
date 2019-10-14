@@ -52,8 +52,10 @@ const Img = styled(Image)`
   width: 50%;
   object-fit: cover;
 
+  height: 200px;
+
+  margin-top: 1rem;
   img {
-    height: 200px;
     width: 200px;
 
     ${media.phone`
